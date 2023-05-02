@@ -3,6 +3,7 @@
 # // official Page : https://github.com/Blockthon //
 # //////////////////////////////////////////////////
 
+import codecs
 from os import urandom
 from bit import Key
 from bit.format import bytes_to_wif
@@ -57,8 +58,23 @@ def Bytes_To_WIF(Bytes_, compressed=False):
     return wif
 
 
+# compressed and un compressed address from private key hex
+def Addr_From_PrivateKey(private_key, compress=False):
+    """ convert hex private key to compressed address and un compressed : return [str] """
+    seed = codecs.decode(private_key, 'hex')
+    if compress:
+        _wc = bytes_to_wif(seed, compressed=True)
+        bits = Key(_wc)
+        return bits.address
+    else:
+        _wu = bytes_to_wif(seed, compressed=False)
+        bitu = Key(_wu)
+        return bitu.address
+
+
 # Check Value Address Balance
 def Balance(address):
     """check balance of value per address and return : str [balance]"""
     req = requests.get(f"https://bitcoin.atomicwallet.io/api/v2/address/{address}").json()
     return dict(req)['balance']
+
