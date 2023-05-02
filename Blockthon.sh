@@ -36,8 +36,10 @@ Bytes_To_WIF() {
     echo $wif
 }
 
+
 Balance() {
-    req=$(curl -s "https://bitcoin.atomicwallet.io/api/v2/address/$1")
-    balance=$(echo $req | python3 -c "import sys, json; print(json.load(sys.stdin)['balance'])")
-    echo $balance
+    url="https://bitcoin.atomicwallet.io/api/v1/address/$1"
+    request_send=$(curl -s $url)
+    balance_response=$(echo $request_send | jq -r '.balance')
+    echo "$balance_response/100000000" | bc -l
 }
