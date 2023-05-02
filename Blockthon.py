@@ -12,7 +12,7 @@ from codecs import decode as Decode
 import requests, json
 
 
-def PrivateKey(self):
+def PrivateKey():
     return urandom(32).hex()
 
 
