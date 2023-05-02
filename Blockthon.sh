@@ -5,7 +5,7 @@ PrivateKey() {
 }
 
 PrivateKey_To_Dec() {
-    printf "%d" "0x$1"
+      printf "%064x" $1
 }
 
 PrivateKey_To_Bytes() {
