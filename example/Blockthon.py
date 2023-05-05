@@ -3,6 +3,11 @@
 # // official Page : https://github.com/Blockthon //
 # //////////////////////////////////////////////////
 
+# //////////////////////////////////////////////////
+# // Github : github.com/Pymmdrza                 //
+# // official Page : https://github.com/Blockthon //
+# //////////////////////////////////////////////////
+
 import codecs
 from os import urandom
 from bit import Key
@@ -10,13 +15,108 @@ from bit.format import bytes_to_wif
 from binascii import hexlify
 from mnemonic import Mnemonic
 from codecs import decode as Decode
-import requests, json
+import requests, json, re, random
+from assest.hdwallet import HDWallet
+from assest.symbols import BTC, ETH, TRX, LTC, DOGE, DGB, RVN, DASH, BTG, VIA, QTUM, ZEC
 
 
 def PrivateKey():
     return urandom(32).hex()
 
 
+# Generated Mnemonic Random
+def Get_Mnemonic(size=12):
+    """ Size for Generated words 12 or 24 default 12 """
+    ml = ''
+    words = "AbandonAbilityAbleAboutAboveAbsentAbsorbAbstractAbsurdAbuseAccessAccidentAccountAccuseAchieveAcidAcousticAcquireAcrossActActionActorActressActualAdaptAddAddictAddressAdjustAdmitAdultAdvanceAdviceAerobicAffairAffordAfraidAgainAgeAgentAgreeAheadAimAirAirportAisleAlarmAlbumAlcoholAlertAlienAllAlleyAllowAlmostAloneAlphaAlreadyAlsoAlterAlwaysAmateurAmazingAmongAmountAmusedAnalystAnchorAncientAngerAngleAngryAnimalAnkleAnnounceAnnualAnotherAnswerAntennaAntiqueAnxietyAnyApartApologyAppearAppleApproveAprilArchArcticAreaArenaArgueArmArmedArmorArmyAroundArrangeArrestArriveArrowArtArtefactArtistArtworkAskAspectAssaultAssetAssistAssumeAsthmaAthleteAtomAttackAttendAttitudeAttractAuctionAuditAugustAuntAuthorAutoAutumnAverageAvocadoAvoidAwakeAwareAwayAwesomeAwfulAwkwardAxisBabyBachelorBaconBadgeBagBalanceBalconyBallBambooBananaBannerBarBarelyBargainBarrelBaseBasicBasketBattleBeachBeanBeautyBecauseBecomeBeefBeforeBeginBehaveBehindBelieveBelowBeltBenchBenefitBestBetrayBetterBetweenBeyondBicycleBidBikeBindBiologyBirdBirthBitterBlackBladeBlameBlanketBlastBleakBlessBlindBloodBlossomBlouseBlueBlurBlushBoardBoatBodyBoilBombBoneBonusBookBoostBorderBoringBorrowBossBottomBounceBoxBoyBracketBrainBrandBrassBraveBreadBreezeBrickBridgeBriefBrightBringBriskBroccoliBrokenBronzeBroomBrotherBrownBrushBubbleBuddyBudgetBuffaloBuildBulbBulkBulletBundleBunkerBurdenBurgerBurstBusBusinessBusyButterBuyerBuzzCabbageCabinCableCactusCageCakeCallCalmCameraCampCanCanalCancelCandyCannonCanoeCanvasCanyonCapableCapitalCaptainCarCarbonCardCargoCarpetCarryCartCaseCashCasinoCastleCasualCatCatalogCatchCategoryCattleCaughtCauseCautionCaveCeilingCeleryCementCensusCenturyCerealCertainChairChalkChampionChangeChaosChapterChargeChaseChatCheapCheckCheeseChefCherryChestChickenChiefChildChimneyChoiceChooseChronicChuckleChunkChurnCigarCinnamonCircleCitizenCityCivilClaimClapClarifyClawClayCleanClerkCleverClickClientCliffClimbClinicClipClockClogCloseClothCloudClownClubClumpClusterClutchCoachCoastCoconutCodeCoffeeCoilCoinCollectColorColumnCombineComeComfortComicCommonCompanyConcertConductConfirmCongressConnectConsiderControlConvinceCookCoolCopperCopyCoralCoreCornCorrectCostCottonCouchCountryCoupleCourseCousinCoverCoyoteCrackCradleCraftCramCraneCrashCraterCrawlCrazyCreamCreditCreekCrewCricketCrimeCrispCriticCropCrossCrouchCrowdCrucialCruelCruiseCrumbleCrunchCrushCryCrystalCubeCultureCupCupboardCuriousCurrentCurtainCurveCushionCustomCuteCycleDadDamageDampDanceDangerDaringDashDaughterDawnDayDealDebateDebrisDecadeDecemberDecideDeclineDecorateDecreaseDeerDefenseDefineDefyDegreeDelayDeliverDemandDemiseDenialDentistDenyDepartDependDepositDepthDeputyDeriveDescribeDesertDesignDeskDespairDestroyDetailDetectDevelopDeviceDevoteDiagramDialDiamondDiaryDiceDieselDietDifferDigitalDignityDilemmaDinnerDinosaurDirectDirtDisagreeDiscoverDiseaseDishDismissDisorderDisplayDistanceDivertDivideDivorceDizzyDoctorDocumentDogDollDolphinDomainDonateDonkeyDonorDoorDoseDoubleDoveDraftDragonDramaDrasticDrawDreamDressDriftDrillDrinkDripDriveDropDrumDryDuckDumbDuneDuringDustDutchDutyDwarfDynamicEagerEagleEarlyEarnEarthEasilyEastEasyEchoEcologyEconomyEdgeEditEducateEffortEggEightEitherElbowElderElectricElegantElementElephantElevatorEliteElseEmbarkEmbodyEmbraceEmergeEmotionEmployEmpowerEmptyEnableEnactEndEndlessEndorseEnemyEnergyEnforceEngageEngineEnhanceEnjoyEnlistEnoughEnrichEnrollEnsureEnterEntireEntryEnvelopeEpisodeEqualEquipEraEraseErodeErosionErrorEruptEscapeEssayEssenceEstateEternalEthicsEvidenceEvilEvokeEvolveExactExampleExcessExchangeExciteExcludeExcuseExecuteExerciseExhaustExhibitExileExistExitExoticExpandExpectExpireExplainExposeExpressExtendExtraEyeEyebrowFabricFaceFacultyFadeFaintFaithFallFalseFameFamilyFamousFanFancyFantasyFarmFashionFatFatalFatherFatigueFaultFavoriteFeatureFebruaryFederalFeeFeedFeelFemaleFenceFestivalFetchFeverFewFiberFictionFieldFigureFileFilmFilterFinalFindFineFingerFinishFireFirmFirstFiscalFishFitFitnessFixFlagFlameFlashFlatFlavorFleeFlightFlipFloatFlockFloorFlowerFluidFlushFlyFoamFocusFogFoilFoldFollowFoodFootForceForestForgetForkFortuneForumForwardFossilFosterFoundFoxFragileFrameFrequentFreshFriendFringeFrogFrontFrostFrownFrozenFruitFuelFunFunnyFurnaceFuryFutureGadgetGainGalaxyGalleryGameGapGarageGarbageGardenGarlicGarmentGasGaspGateGatherGaugeGazeGeneralGeniusGenreGentleGenuineGestureGhostGiantGiftGiggleGingerGiraffeGirlGiveGladGlanceGlareGlassGlideGlimpseGlobeGloomGloryGloveGlowGlueGoatGoddessGoldGoodGooseGorillaGospelGossipGovernGownGrabGraceGrainGrantGrapeGrassGravityGreatGreenGridGriefGritGroceryGroupGrowGruntGuardGuessGuideGuiltGuitarGunGymHabitHairHalfHammerHamsterHandHappyHarborHardHarshHarvestHatHaveHawkHazardHeadHealthHeartHeavyHedgehogHeightHelloHelmetHelpHenHeroHiddenHighHillHintHipHireHistoryHobbyHockeyHoldHoleHolidayHollowHomeHoneyHoodHopeHornHorrorHorseHospitalHostHotelHourHoverHubHugeHumanHumbleHumorHundredHungryHuntHurdleHurryHurtHusbandHybridIceIconIdeaIdentifyIdleIgnoreIllIllegalIllnessImageImitateImmenseImmuneImpactImposeImproveImpulseInchIncludeIncomeIncreaseIndexIndicateIndoorIndustryInfantInflictInformInhaleInheritInitialInjectInjuryInmateInnerInnocentInputInquiryInsaneInsectInsideInspireInstallIntactInterestIntoInvestInviteInvolveIronIslandIsolateIssueItemIvoryJacketJaguarJarJazzJealousJeansJellyJewelJobJoinJokeJourneyJoyJudgeJuiceJumpJungleJuniorJunkJustKangarooKeenKeepKetchupKeyKickKidKidneyKindKingdomKissKitKitchenKiteKittenKiwiKneeKnifeKnockKnowLabLabelLaborLadderLadyLakeLampLanguageLaptopLargeLaterLatinLaughLaundryLavaLawLawnLawsuitLayerLazyLeaderLeafLearnLeaveLectureLeftLegLegalLegendLeisureLemonLendLengthLensLeopardLessonLetterLevelLiarLibertyLibraryLicenseLifeLiftLightLikeLimbLimitLinkLionLiquidListLittleLiveLizardLoadLoanLobsterLocalLockLogicLonelyLongLoopLotteryLoudLoungeLoveLoyalLuckyLuggageLumberLunarLunchLuxuryLyricsMachineMadMagicMagnetMaidMailMainMajorMakeMammalManManageMandateMangoMansionManualMapleMarbleMarchMarginMarineMarketMarriageMaskMassMasterMatchMaterialMathMatrixMatterMaximumMazeMeadowMeanMeasureMeatMechanicMedalMediaMelodyMeltMemberMemoryMentionMenuMercyMergeMeritMerryMeshMessageMetalMethodMiddleMidnightMilkMillionMimicMindMinimumMinorMinuteMiracleMirrorMiseryMissMistakeMixMixedMixtureMobileModelModifyMomMomentMonitorMonkeyMonsterMonthMoonMoralMoreMorningMosquitoMotherMotionMotorMountainMouseMoveMovieMuchMuffinMuleMultiplyMuscleMuseumMushroomMusicMustMutualMyselfMysteryMythNaiveNameNapkinNarrowNastyNationNatureNearNeckNeedNegativeNeglectNeitherNephewNerveNestNetNetworkNeutralNeverNewsNextNiceNightNobleNoiseNomineeNoodleNormalNorthNoseNotableNoteNothingNoticeNovelNowNuclearNumberNurseNutOakObeyObjectObligeObscureObserveObtainObviousOccurOceanOctoberOdorOffOfferOfficeOftenOilOkayOldOliveOlympicOmitOnceOneOnionOnlineOnlyOpenOperaOpinionOpposeOptionOrangeOrbitOrchardOrderOrdinaryOrganOrientOriginalOrphanOstrichOtherOutdoorOuterOutputOutsideOvalOvenOverOwnOwnerOxygenOysterOzonePactPaddlePagePairPalacePalmPandaPanelPanicPantherPaperParadeParentParkParrotPartyPassPatchPathPatientPatrolPatternPausePavePaymentPeacePeanutPearPeasantPelicanPenPenaltyPencilPeoplePepperPerfectPermitPersonPetPhonePhotoPhrasePhysicalPianoPicnicPicturePiecePigPigeonPillPilotPinkPioneerPipePistolPitchPizzaPlacePlanetPlasticPlatePlayPleasePledgePluckPlugPlungePoemPoetPointPolarPolePolicePondPonyPoolPopularPortionPositionPossiblePostPotatoPotteryPovertyPowderPowerPracticePraisePredictPreferPreparePresentPrettyPreventPricePridePrimaryPrintPriorityPrisonPrivatePrizeProblemProcessProduceProfitProgramProjectPromoteProofPropertyProsperProtectProudProvidePublicPuddingPullPulpPulsePumpkinPunchPupilPuppyPurchasePurityPurposePursePushPutPuzzlePyramidQualityQuantumQuarterQuestionQuickQuitQuizQuoteRabbitRaccoonRaceRackRadarRadioRailRainRaiseRallyRampRanchRandomRangeRapidRareRateRatherRavenRawRazorReadyRealReasonRebelRebuildRecallReceiveRecipeRecordRecycleReduceReflectReformRefuseRegionRegretRegularRejectRelaxReleaseReliefRelyRemainRememberRemindRemoveRenderRenewRentReopenRepairRepeatReplaceReportRequireRescueResembleResistResourceResponseResultRetireRetreatReturnReunionRevealReviewRewardRhythmRibRibbonRiceRichRideRidgeRifleRightRigidRingRiotRippleRiskRitualRivalRiverRoadRoastRobotRobustRocketRomanceRoofRookieRoomRoseRotateRoughRoundRouteRoyalRubberRudeRugRuleRunRunwayRuralSadSaddleSadnessSafeSailSaladSalmonSalonSaltSaluteSameSampleSandSatisfySatoshiSauceSausageSaveSayScaleScanScareScatterSceneSchemeSchoolScienceScissorsScorpionScoutScrapScreenScriptScrubSeaSearchSeasonSeatSecondSecretSectionSecuritySeedSeekSegmentSelectSellSeminarSeniorSenseSentenceSeriesServiceSessionSettleSetupSevenShadowShaftShallowShareShedShellSheriffShieldShiftShineShipShiverShockShoeShootShopShortShoulderShoveShrimpShrugShuffleShySiblingSickSideSiegeSightSignSilentSilkSillySilverSimilarSimpleSinceSingSirenSisterSituateSixSizeSkateSketchSkiSkillSkinSkirtSkullSlabSlamSleepSlenderSliceSlideSlightSlimSloganSlotSlowSlushSmallSmartSmileSmokeSmoothSnackSnakeSnapSniffSnowSoapSoccerSocialSockSodaSoftSolarSoldierSolidSolutionSolveSomeoneSongSoonSorrySortSoulSoundSoupSourceSouthSpaceSpareSpatialSpawnSpeakSpecialSpeedSpellSpendSphereSpiceSpiderSpikeSpinSpiritSplitSpoilSponsorSpoonSportSpotSpraySpreadSpringSpySquareSqueezeSquirrelStableStadiumStaffStageStairsStampStandStartStateStaySteakSteelStemStepStereoStickStillStingStockStomachStoneStoolStoryStoveStrategyStreetStrikeStrongStruggleStudentStuffStumbleStyleSubjectSubmitSubwaySuccessSuchSuddenSufferSugarSuggestSuitSummerSunSunnySunsetSuperSupplySupremeSureSurfaceSurgeSurpriseSurroundSurveySuspectSustainSwallowSwampSwapSwarmSwearSweetSwiftSwimSwingSwitchSwordSymbolSymptomSyrupSystemTableTackleTagTailTalentTalkTankTapeTargetTaskTasteTattooTaxiTeachTeamTellTenTenantTennisTentTermTestTextThankThatThemeThenTheoryThereTheyThingThisThoughtThreeThriveThrowThumbThunderTicketTideTigerTiltTimberTimeTinyTipTiredTissueTitleToastTobaccoTodayToddlerToeTogetherToiletTokenTomatoTomorrowToneTongueTonightToolToothTopTopicToppleTorchTornadoTortoiseTossTotalTouristTowardTowerTownToyTrackTradeTrafficTragicTrainTransferTrapTrashTravelTrayTreatTreeTrendTrialTribeTrickTriggerTrimTripTrophyTroubleTruckTrueTrulyTrumpetTrustTruthTryTubeTuitionTumbleTunaTunnelTurkeyTurnTurtleTwelveTwentyTwiceTwinTwistTwoTypeTypicalUglyUmbrellaUnableUnawareUncleUncoverUnderUndoUnfairUnfoldUnhappyUniformUniqueUnitUniverseUnknownUnlockUntilUnusualUnveilUpdateUpgradeUpholdUponUpperUpsetUrbanUrgeUsageUseUsedUsefulUselessUsualUtilityVacantVacuumVagueValidValleyValveVanVanishVaporVariousVastVaultVehicleVelvetVendorVentureVenueVerbVerifyVersionVeryVesselVeteranViableVibrantViciousVictoryVideoViewVillageVintageViolinVirtualVirusVisaVisitVisualVitalVividVocalVoiceVoidVolcanoVolumeVoteVoyageWageWagonWaitWalkWallWalnutWantWarfareWarmWarriorWashWaspWasteWaterWaveWayWealthWeaponWearWeaselWeatherWebWeddingWeekendWeirdWelcomeWestWetWhaleWhatWheatWheelWhenWhereWhipWhisperWideWidthWifeWildWillWinWindowWineWingWinkWinnerWinterWireWisdomWiseWishWitnessWolfWomanWonderWoodWoolWordWorkWorldWorryWorthWrapWreckWrestleWristWriteWrongYardYearYellowYouYoungYouthZebraZeroZoneZoo"
+    mnemonics = re.findall('[A-Z][a-z]+', words)
+    z = 0
+    c = 0
+    for r in range(size):
+        lx = random.choice(mnemonics)
+        ml += f" {lx}"
+
+    return str(ml).lower()
+
+
+# Generated and convert Ethereum Address Wallet From Private Key (HEX)
+def ETH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=ETH)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert TRON Address Wallet From Private Key (HEX)
+def TRX_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=TRX)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert Dogecoin Address Wallet From Private Key (HEX)
+def DOGE_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=DOGE)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert Dash Address Wallet From Private Key (HEX)
+def DASH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=DASH)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert Bitcoin Gold Address Wallet From Private Key (HEX)
+def BTG_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=BTG)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert Litecoin Address Wallet From Private Key (HEX)
+def LTC_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=LTC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert DigiByte Address Wallet From Private Key (HEX)
+def DigiByte_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=DGB)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert Rave Coin Address Wallet From Private Key (HEX)
+def RVN_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=RVN)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert Via coin Address Wallet From Private Key (HEX)
+def VIA_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=VIA)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert Qtum Address Wallet From Private Key (HEX)
+def QTUM_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=QTUM)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated and convert ZCash Address Wallet From Private Key (HEX)
+def ZEC_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=ZEC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Convert Private Key to Dec
 def PrivateKey_To_Dec(private_key):
     """ Convert Hex to Integer Return int [dec] """
     return int(private_key, 16)
@@ -72,8 +172,62 @@ def Addr_From_PrivateKey(private_key, compress=False):
         return bitu.address
 
 
-# Check Value Address Balance
+# Check Value Bitcoin Address Balance Return Value [str: '0']
 def Balance(address):
     """check balance of value per address and return : str [balance]"""
     req = requests.get(f"https://bitcoin.atomicwallet.io/api/v2/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value Ethereum Address Balance Return [str]
+def Balance_Ethereum(address):
+    req = requests.get(f"https://ethereum.atomicwallet.io/api/v2/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value Litecoin Address Balance Return [str]
+def Balance_Litecoin(address):
+    req = requests.get(f"https://litecoin.atomicwallet.io/api/v2/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value TRON Address Balance Return [str]
+def Balance_Tron(address):
+    req = requests.get(f"https://apilist.tronscanapi.com/api/accountv2?address={address}&source=true").json()
+    return dict(req)['balance']
+
+
+# Check Value Dogecoin Address Balance Return [str]
+def Balance_Dogecoin(address):
+    req = requests.get(f"https://dogecoin.atomicwallet.io/api/v2/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value Bitcoin Gold Address Balance Return [str]
+def Balance_BitcoinGold(address):
+    req = requests.get(f"https://bgold.atomicwallet.io/api/v1/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value DigiByte Address Balance Return [str]
+def Balance_DigiByte(address):
+    req = requests.get(f"https://digibyte.atomicwallet.io/api/v1/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value Ravencoin Address Balance Return [str]
+def Balance_Ravencoin(address):
+    req = requests.get(f"https://ravencoin.atomicwallet.io/api/v1/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value Qtum Address Balance Return [str]
+def Balance_Qtum(address):
+    req = requests.get(f"https://qtum.atomicwallet.io/api/v1/address/{address}").json()
+    return dict(req)['balance']
+
+
+# Check Value ZCASH Address Balance Return [str]
+def Balance_zCash(address):
+    req = requests.get(f"https://zcash.atomicwallet.io/api/v1/address/{address}").json()
     return dict(req)['balance']
