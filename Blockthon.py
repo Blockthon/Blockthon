@@ -2,6 +2,7 @@
 # // Github : github.com/Pymmdrza                 //
 # // official Page : https://github.com/Blockthon //
 # //////////////////////////////////////////////////
+
 import codecs
 from os import urandom
 from bit import Key
@@ -114,6 +115,12 @@ def ZEC_From_PrivateKey(privatekey):
 def PrivateKey_To_Dec(private_key):
     """ Convert Hex to Integer Return int [dec] """
     return int(private_key, 16)
+
+
+# Convert Number (Dec) To Private Key (HEX)
+def PrivateKey_From_int(int_):
+    """ Convert Number (Integer) To Private key (HEX) Return str """
+    return "%064x" % int_
 
 
 # Convert Private Key (HEX) To Bytes
