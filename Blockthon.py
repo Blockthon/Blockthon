@@ -2,7 +2,6 @@
 # // Github : github.com/Pymmdrza                 //
 # // official Page : https://github.com/Blockthon //
 # //////////////////////////////////////////////////
-
 import codecs
 from os import urandom
 from bit import Key
