@@ -11,12 +11,27 @@ from binascii import hexlify
 from mnemonic import Mnemonic
 from codecs import decode as Decode
 import requests, json, re, random
-from assest.hdwallet import HDWallet
-from assest.symbols import BTC, ETH, TRX, LTC, DOGE, DGB, RVN, DASH, BTG, VIA, QTUM, ZEC
+from Block.hdwallet import HDWallet
+from Block.symbols import BTC, ETH, TRX, LTC, DOGE, DGB, RVN, DASH, BTG, VIA, QTUM, ZEC
 
 
 def PrivateKey():
     return urandom(32).hex()
+
+
+# Convert Private Key (Hex) To decimal (Number)
+def PrivateKey_To_dec(key):
+    """ Convert Private Key (Hex) To Decimal (Number) return [int] """
+    dec_number: int = 0
+    for digit in key:
+        dec_number: int = dec_number * 16
+        if '0' <= digit <= '9':
+            dec_number += ord(digit) - ord('0')
+        elif 'A' <= digit <= 'F':
+            dec_number += ord(digit) - ord('A') + 10
+        elif 'a' <= digit <= 'f':
+            dec_number += ord(digit) - ord('a') + 10
+    return dec_number
 
 
 # Generated Mnemonic Random
@@ -32,6 +47,76 @@ def Get_Mnemonic(size=12):
         ml += f" {lx}"
 
     return str(ml).lower()
+
+
+# Convert and Generated Compressed Address Bitcoin Wallet From Private Key (hex)
+def Compress_From_PrivateKey(private_key, compress=True):
+    """ convert hex private key to compressed address : return [str] """
+    seed = codecs.decode(private_key, 'hex')
+    if compress:
+        _wc = bytes_to_wif(seed, compressed=True)
+        bits = Key(_wc)
+        return bits.address
+    else:
+        _wu = bytes_to_wif(seed, compressed=False)
+        bitu = Key(_wu)
+        return bitu.address
+
+
+# Convert and Generated Compressed Address Bitcoin Wallet From Private Key (hex)
+def unCompress_From_PrivateKey(private_key, compress=False):
+    """ convert hex private key to un compressed address : return [str] """
+    seed = codecs.decode(private_key, 'hex')
+    if compress:
+        _wc = bytes_to_wif(seed, compressed=True)
+        bits = Key(_wc)
+        return bits.address
+    else:
+        _wu = bytes_to_wif(seed, compressed=False)
+        bitu = Key(_wu)
+        return bitu.address
+
+
+# Generated Bitcoin Address P2PKH From Private Key (HEX)
+def P2PKH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=BTC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2pkh_address()
+
+
+# Generated Bitcoin Address P2SH From Private Key (HEX)
+def P2SH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=BTC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2sh_address()
+
+
+# Generated Bitcoin Address P2WSH From Private Key (HEX)
+def P2WSH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=BTC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2wsh_address()
+
+
+# Generated Bitcoin Address P2WPKH From Private Key (HEX)
+def P2WPKH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=BTC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2wpkh_address()
+
+
+# Generated Bitcoin Address P2wsh in P2sh From Private Key (HEX)
+def P2WSH_in_P2SH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=BTC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2wsh_in_p2sh_address()
+
+
+# Generated Bitcoin Address P2wpkh in P2sh From Private Key (HEX)
+def P2WPKH_in_P2SH_From_PrivateKey(privatekey):
+    wallet: HDWallet = HDWallet(symbol=BTC)
+    wallet.from_private_key(privatekey)
+    return wallet.p2wpkh_in_p2sh_address()
 
 
 # Generated and convert Ethereum Address Wallet From Private Key (HEX)
