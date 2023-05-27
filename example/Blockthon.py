@@ -1,23 +1,59 @@
 # //////////////////////////////////////////////////
 # // Github : github.com/Pymmdrza                 //
-# // official Page : github.com/Blockthon         //
-# // Google Group : groups.google.com/g/mmdrza    //
+# // official Page : https://github.com/Blockthon //
 # //////////////////////////////////////////////////
 
-import codecs
+import codecs, ecdsa, hashlib
 from os import urandom
 from bit import Key
 from bit.format import bytes_to_wif
-from binascii import hexlify as _decode, unhexlify as _encode
+from binascii import hexlify as _decode
+from binascii import unhexlify as _encode
 from mnemonic import Mnemonic
 import requests, json, re, random
 from hdwallet import HDWallet
 from hdwallet.symbols import BTC, ETH, TRX, LTC, DOGE, DGB, RVN, DASH, BTG, VIA, QTUM, ZEC
 
 
+def PublicKey_To_Addr(public_key):
+    PublicKeyByte = codecs.decode(public_key, 'hex')
+    sha256_bpk = hashlib.sha256(PublicKeyByte)
+    sha256_bpk_digest = sha256_bpk.digest()
+    ripemd160_bpk = hashlib.new('ripemd160')
+    ripemd160_bpk.update(sha256_bpk_digest)
+    ripemd160_bpk_digest = ripemd160_bpk.digest()
+    ripemd160_bpk_hex = codecs.encode(ripemd160_bpk_digest, 'hex')
+    NetByte = b'00'
+    NetBTCBytePubKey = NetByte + ripemd160_bpk_hex
+    NetBTCPubKeyByte = codecs.decode(
+        NetBTCBytePubKey, 'hex')
+    Hash256N = hashlib.sha256(NetBTCPubKeyByte)
+    Hash256N_digest = Hash256N.digest()
+    sha256_2_nbpk = hashlib.sha256(Hash256N_digest)
+    sha256_2_nbpk_digest = sha256_2_nbpk.digest()
+    sha256_2_hex = codecs.encode(sha256_2_nbpk_digest, 'hex')
+    checksum = sha256_2_hex[:8]
+    addrHex = (NetBTCBytePubKey + checksum).decode('utf-8')
+    return base58(addrHex)
+
 def PrivateKey():
     return urandom(32).hex()
 
+
+def base58(hashaddr_):
+    a_ = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+    b58_ = ''
+    _lz = len(hashaddr_) - len(hashaddr_.lstrip('0'))
+    _addrNum = int(hashaddr_, 16)
+    while _addrNum > 0:
+        dg_ = _addrNum % 58
+        cdg_ = a_[dg_]
+        b58_ = cdg_ + b58_
+        _addrNum //= 58
+    on_ = _lz // 2
+    for one in range(on_):
+        b58_ = '1' + b58_
+    return b58_
 
 # Generated Mnemonic Random
 def getMnemonic(size=12):
@@ -179,6 +215,13 @@ def ZEC_From_PrivateKey(privatekey):
     return wallet.p2pkh_address()
 
 
+def PrivateKey_To_PublicKey(privatekey):
+    key = ecdsa.SigningKey.from_string(codecs.decode(privatekey, 'hex'), curve=ecdsa.SECP256k1).verifying_key
+    key_hex = key.hex()
+    public_key = b'04' + key_hex
+    return public_key
+
+
 # Convert Private Key to Dec (Number - integer)
 def PrivateKey_To_Dec(private_key):
     """ Convert Hex to Integer Return int [dec] """
@@ -221,9 +264,8 @@ def PrivateKey_From_int(int_):
 # Convert Private Key (HEX) To Bytes
 def PrivateKey_To_Bytes(private_key):
     """ Convert Hex to Bytes and Return binary [byte] """
-    if len(private_key) % 2 != 0:  # Check if length is odd
-        private_key = '0' + private_key  # Add leading zero to make it even
-    return _encode(private_key)
+    bs_ = codecs.decode(private_key, 'hex')
+    return bs_
 
 
 # Convert Binary 256 To HEX For Private Key : Return [str]
@@ -254,6 +296,10 @@ def PrivateKey_To_Mnemonic(private_key):
     if len(byte_string) != nearest_length:
         byte_string = byte_string[:nearest_length]
     return Mnemonic('english').to_mnemonic(byte_string)
+
+
+def PrivateKey_From_Passphrase(passphrase):
+    return str(hashlib.sha256(passphrase.encode('utf-8')).hexdigest())
 
 
 # Convert Byte To WIF Compressed and Un Compressed
