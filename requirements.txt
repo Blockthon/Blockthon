@@ -2,3 +2,4 @@ bit==0.8.0
 hdwallet==2.2.1
 requests==2.28.2
 requests-html==0.10.0
+ecdsa==0.18.0
