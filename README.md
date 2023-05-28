@@ -25,6 +25,18 @@ PrivateKey = Blockthon.PrivateKey()
 Generated Compressed Address and Un Compressed Address Wallet Bitcoin From Private Key Hex : example to [ `AddrFromHex_CheckBalance.py` ](https://github.com/Blockthon/Blockthon/blob/main/example/AddrFromHex_CheckBalance.py)
 
 ---
+### Generated `Compress` and `Un Compress` Bitcoin Wallet Address :
+
+```python
+import Blockthon as block
+
+PrivateKey_ = block.PrivateKey()
+# Un Compress Bitcoin Wallet Address [Default : compress=false]
+unCompress_Address = block.Addr_From_PrivateKey(PrivateKey_)
+# Compress Bitcoin Wallet Address [Default : compress=True]
+Compress_Address = block.Addr_From_PrivateKey(PrivateKey_, True)
+```
+
 
 ### Generated `P2PKH` , `P2SH` , `P2WPKH` , `P2WSH` , `P2WSH in P2SH` and `P2WPKH in P2SH` Bitcoin Address Type From Private Key (hex) :
 
