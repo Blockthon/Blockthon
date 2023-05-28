@@ -70,6 +70,17 @@ privatekey = block.PrivateKey()
 ethereum_Address = block.ETH_From_PrivateKey(privatekey)
 
 ```
+
+Check Value Balance Ethereum Address :
+
+```python
+import Blockthon as block
+
+address = "0xe36B47dC83228FA6c3a50B07A820d3CdF7fAa700"
+# Check Value Balance Return [str]
+balance = block.Balance_Ethereum(address)
+```
+
 ---
 
 ### Generated Tron Address From Private Key (HEX):
@@ -84,6 +95,16 @@ privatekey = block.PrivateKey()
 # Generated Tron Address From Private Key (HEX)
 Tron_Address = block.TRX_From_PrivateKey(privatekey)
 ```
+Check Value Balance Tron Address :
+
+```python
+import Blockthon as block
+
+address = "TDbLEetdDFLJcq19DrKk3yJAHpWfkQ418r"
+# Check Value Balance Return [str]
+balance = block.Balance_Tron(address)
+```
+
 ---
 
 
@@ -99,6 +120,16 @@ privatekey = block.PrivateKey()
 # Generated Dogecoin Address From Private Key (HEX)
 Dogecoin_Address = block.DOGE_From_PrivateKey(privatekey)
 ```
+
+Check Value Balance Dogecoin Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Dogecoin(Dogecoin_Address)
+```
+
 ---
 
 ### Generated Dash Address From Private Key (HEX):
@@ -113,6 +144,16 @@ privatekey = block.PrivateKey()
 # Generated Dash Address From Private Key (HEX)
 Dash_Address = block.DASH_From_PrivateKey(privatekey)
 ```
+
+Check Value Balance Dash Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Dash(Dash_Address)
+```
+
 ---
 
 
@@ -128,6 +169,23 @@ privatekey = block.PrivateKey()
 # Generated Bitcoin Gold Address From Private Key (HEX)
 BitcoinGold_Address = block.BTG_From_PrivateKey(privatekey)
 ```
+
+Check Value Balance BitcoinGold Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_BitcoinGold(BitcoinGold_Address)
+```
+Check Value Balance BitcoinGold Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_BitcoinGold(BitcoinGold_Address)
+```
 ---
 
 ### Generated Litecoin Address From Private Key (HEX):
@@ -142,6 +200,16 @@ privatekey = block.PrivateKey()
 # Generated Litecoin Address From Private Key (HEX)
 Litecoin_Address = block.LTC_From_PrivateKey(privatekey)
 ```
+
+Check Value Balance Litecoin Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Litecoin(Litecoin_Address)
+```
+
 ---
 
 ### Generated Ravencoin Address From Private Key (HEX):
@@ -156,6 +224,16 @@ privatekey = block.PrivateKey()
 # Generated Ravencoin Address From Private Key (HEX)
 Ravencoin_Address = block.RVN_From_PrivateKey(privatekey)
 ```
+
+Check Value Balance Ravencoin Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Ravencoin(Ravencoin_Address)
+```
+
 ---
 
 
@@ -171,6 +249,16 @@ privatekey = block.PrivateKey()
 # Generated DigiByte Address From Private Key (HEX)
 DigiByte_Address = block.DigiByte_From_PrivateKey(privatekey)
 ```
+
+Check Value Balance DigiByte Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_DigiByte(DigiByte_Address)
+```
+
 ---
 
 
@@ -201,7 +289,14 @@ privatekey = block.PrivateKey()
 # Generated QTUM Address From Private Key (HEX)
 QTUM_Address = block.QTUM_From_PrivateKey(privatekey)
 ```
+Check Value Balance Qtum Address :
 
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Qtum(Qtum_Address)
+```
 ---
 
 
@@ -216,6 +311,14 @@ import Blockthon as block
 privatekey = block.PrivateKey()
 # Generated ZEC Address From Private Key (HEX)
 ZEC_Address = block.ZEC_From_PrivateKey(privatekey)
+```
+Check Value Balance zCash Address :
+
+```python
+import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_zCash(zCash_Address)
 ```
 
 ---
