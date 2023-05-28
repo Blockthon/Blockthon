@@ -60,7 +60,7 @@ p2wsh_in_p2sh = block.P2WSH_in_P2SH_From_PrivateKey(privatekey)
 ```
 ### Check Balance (Value) Bitcoin Wallet Address:
 
-for check balance per address wallet just use `Balance()` for bitcoin address's
+#### for check balance per address wallet just use `Balance()` for bitcoin address's
 ```python
 import Blockthon as block
 
@@ -83,7 +83,7 @@ ethereum_Address = block.ETH_From_PrivateKey(privatekey)
 
 ```
 
-Check Value Balance Ethereum Address :
+#### Check Value Balance Ethereum Address :
 
 ```python
 import Blockthon as block
@@ -107,7 +107,7 @@ privatekey = block.PrivateKey()
 # Generated Tron Address From Private Key (HEX)
 Tron_Address = block.TRX_From_PrivateKey(privatekey)
 ```
-Check Value Balance Tron Address :
+#### Check Value Balance Tron Address :
 
 ```python
 import Blockthon as block
@@ -133,7 +133,7 @@ privatekey = block.PrivateKey()
 Dogecoin_Address = block.DOGE_From_PrivateKey(privatekey)
 ```
 
-Check Value Balance Dogecoin Address :
+#### Check Value Balance Dogecoin Address :
 
 ```python
 import Blockthon as block
@@ -157,7 +157,7 @@ privatekey = block.PrivateKey()
 Dash_Address = block.DASH_From_PrivateKey(privatekey)
 ```
 
-Check Value Balance Dash Address :
+#### Check Value Balance Dash Address :
 
 ```python
 import Blockthon as block
@@ -182,7 +182,7 @@ privatekey = block.PrivateKey()
 BitcoinGold_Address = block.BTG_From_PrivateKey(privatekey)
 ```
 
-Check Value Balance BitcoinGold Address :
+#### Check Value Balance BitcoinGold Address :
 
 ```python
 import Blockthon as block
@@ -190,15 +190,6 @@ import Blockthon as block
 # Check Value Balance Return [str]
 balance = block.Balance_BitcoinGold(BitcoinGold_Address)
 ```
-Check Value Balance BitcoinGold Address :
-
-```python
-import Blockthon as block
-
-# Check Value Balance Return [str]
-balance = block.Balance_BitcoinGold(BitcoinGold_Address)
-```
----
 
 ### Generated Litecoin Address From Private Key (HEX):
 
@@ -213,7 +204,7 @@ privatekey = block.PrivateKey()
 Litecoin_Address = block.LTC_From_PrivateKey(privatekey)
 ```
 
-Check Value Balance Litecoin Address :
+#### Check Value Balance Litecoin Address :
 
 ```python
 import Blockthon as block
@@ -237,7 +228,7 @@ privatekey = block.PrivateKey()
 Ravencoin_Address = block.RVN_From_PrivateKey(privatekey)
 ```
 
-Check Value Balance Ravencoin Address :
+#### Check Value Balance Ravencoin Address :
 
 ```python
 import Blockthon as block
@@ -262,7 +253,7 @@ privatekey = block.PrivateKey()
 DigiByte_Address = block.DigiByte_From_PrivateKey(privatekey)
 ```
 
-Check Value Balance DigiByte Address :
+#### Check Value Balance DigiByte Address :
 
 ```python
 import Blockthon as block
@@ -301,7 +292,7 @@ privatekey = block.PrivateKey()
 # Generated QTUM Address From Private Key (HEX)
 QTUM_Address = block.QTUM_From_PrivateKey(privatekey)
 ```
-Check Value Balance Qtum Address :
+#### Check Value Balance Qtum Address :
 
 ```python
 import Blockthon as block
@@ -324,7 +315,7 @@ privatekey = block.PrivateKey()
 # Generated ZEC Address From Private Key (HEX)
 ZEC_Address = block.ZEC_From_PrivateKey(privatekey)
 ```
-Check Value Balance zCash Address :
+#### Check Value Balance zCash Address :
 
 ```python
 import Blockthon as block
