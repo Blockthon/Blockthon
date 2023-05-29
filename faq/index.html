@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Pymmdrza" /><link rel="canonical" href="https://blockthon.readthedocs.io/faq/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>FAQ - Blockthon Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "FAQ";
+        var mkdocs_page_input_path = "faq.md";
+        var mkdocs_page_url = "/faq/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">FAQ</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#generate-private-key-mnemonic-and-convert-seeds-bytes-to-binary-for-bitcoin-ethereum-tron-bitcoin-gold-dogecoin-litecoin-via-dashcoin-zcash-and-qtum-ravencoin">Generate Private Key &amp; Mnemonic and Convert Seed's Bytes To Binary For Bitcoin , Ethereum , Tron , Bitcoin Gold, Dogecoin, Litecoin , VIA , DASHCoin , zCash and Qtum , Ravencoin ...</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-install-blockthon">How To Install Blockthon</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-private-key-hex-random">Generated Private Key (HEX) Random</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-compressed-and-uncompressed-bitcoin-wallet-address">Generated Compressed and UnCompressed Bitcoin Wallet Address</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-p2pkh-p2sh-p2wpkh-p2wsh-p2wsh-in-p2sh-and-p2wpkh-in-p2sh-bitcoin-address-type">Generated P2PKH / P2SH / P2WPKH / P2WSH / P2WSH in P2SH and P2WPKH in P2SH Bitcoin Address Type</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-bitcoin-address">Check Balance Value From Bitcoin Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-ethereum-address-from-private-key-hex">Generated Ethereum Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-ethereum-address">Check Balance Value From Ethereum Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-tron-trx-address-from-private-key-hex">Generated TRON (TRX) Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-tron-address">Check Balance Value From Tron Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-dogecoin-address-from-private-key-hex">Generated Dogecoin Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-dogecoin-address">Check Balance Value From Dogecoin Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-dash-address-from-private-key-hex">Generated Dash Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-dash-address">Check Balance Value From Dash Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-bitcoin-gold-address-from-private-key-hex">Generated Bitcoin Gold Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-bitcoin-gold-address">Check Balance Value From Bitcoin Gold Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-litecoin-address-from-private-key-hex">Generated Litecoin Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-litecoin-address">Check Balance Value From Litecoin Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-qtum-address-from-private-key-hex">Generated Qtum Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-qtum-address">Check Balance Value From QTUM Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-digibyte-address-from-private-key-hex">Generated DigiByte Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-digibyte-address">Check Balance Value From DigiByte Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-zcash-address-from-private-key-hex">Generated ZCASH Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-zcash-address">Check Balance Value From ZCASH Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-raven-coin-address-from-private-key-hex">Generated Raven Coin Address From Private Key (HEX)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-balance-value-from-ravencoin-rvn-address">Check Balance Value From Ravencoin (RVN) Address</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-via-address-from-private-key-hex">Generated VIA Address From Private Key (HEX)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../example/">Example</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contact/">contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Blockthon Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>FAQ</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Blockthon/Blockthon/edit/master/docs/faq.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="blockthon-batch-generated-cryptocurrency-wallet-services">Blockthon - Batch Generated Cryptocurrency Wallet Service's</h1>
+<h2 id="generate-private-key-mnemonic-and-convert-seeds-bytes-to-binary-for-bitcoin-ethereum-tron-bitcoin-gold-dogecoin-litecoin-via-dashcoin-zcash-and-qtum-ravencoin">Generate Private Key &amp; Mnemonic and Convert Seed's Bytes To Binary For Bitcoin , Ethereum , Tron , Bitcoin Gold, Dogecoin, Litecoin , VIA , DASHCoin , zCash and Qtum , Ravencoin ...</h2>
+<hr />
+<h2 id="how-to-install-blockthon">How To Install Blockthon</h2>
+<h3 id="generated-private-key-hex-random"><a href="https://github.com/Blockthon/Blockthon#generate-private-key-hex-random">Generated Private Key (HEX) Random</a></h3>
+<h3 id="generated-compressed-and-uncompressed-bitcoin-wallet-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-compress-and-un-compress-bitcoin-wallet-address-">Generated Compressed and UnCompressed Bitcoin Wallet Address</a></h3>
+<h3 id="generated-p2pkh-p2sh-p2wpkh-p2wsh-p2wsh-in-p2sh-and-p2wpkh-in-p2sh-bitcoin-address-type"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-p2pkh--p2sh--p2wpkh--p2wsh--p2wsh-in-p2sh-and-p2wpkh-in-p2sh-bitcoin-address-type-from-private-key-hex-">Generated P2PKH / P2SH / P2WPKH / P2WSH / P2WSH in P2SH and P2WPKH in P2SH Bitcoin Address Type</a></h3>
+<h4 id="check-balance-value-from-bitcoin-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-balance-value-bitcoin-wallet-address"><code>Check Balance Value From Bitcoin Address</code></a></h4>
+<h3 id="generated-ethereum-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-ethereum-address-from-private-key-hex">Generated Ethereum Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-ethereum-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-ethereum-address-"><code>Check Balance Value From Ethereum Address</code></a></h4>
+<h3 id="generated-tron-trx-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-tron-address-from-private-key-hex">Generated TRON (TRX) Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-tron-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-tron-address-"><code>Check Balance Value From Tron Address</code></a></h4>
+<h3 id="generated-dogecoin-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-dogecoin-address-from-private-key-hex">Generated Dogecoin Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-dogecoin-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-dogecoin-address-"><code>Check Balance Value From Dogecoin Address</code></a></h4>
+<h3 id="generated-dash-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-dash-address-from-private-key-hex">Generated Dash Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-dash-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-dash-address-"><code>Check Balance Value From Dash Address</code></a></h4>
+<h3 id="generated-bitcoin-gold-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-bitcoin-gold-address-from-private-key-hex">Generated Bitcoin Gold Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-bitcoin-gold-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-bitcoin-gold-address-"><code>Check Balance Value From Bitcoin Gold Address</code></a></h4>
+<h3 id="generated-litecoin-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-litecoin-address-from-private-key-hex">Generated Litecoin Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-litecoin-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-litecoin-address-"><code>Check Balance Value From Litecoin Address</code></a></h4>
+<h3 id="generated-qtum-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-qtum-address-from-private-key-hex">Generated Qtum Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-qtum-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-qtum-address-"><code>Check Balance Value From QTUM Address</code></a></h4>
+<h3 id="generated-digibyte-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-DigiByte-address-from-private-key-hex">Generated DigiByte Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-digibyte-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-digibyte-address-"><code>Check Balance Value From DigiByte Address</code></a></h4>
+<h3 id="generated-zcash-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-zcash-address-from-private-key-hex">Generated ZCASH Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-zcash-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-zcash-address-"><code>Check Balance Value From ZCASH Address</code></a></h4>
+<h3 id="generated-raven-coin-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-ravencoin-gold-address-from-private-key-hex">Generated Raven Coin Address From Private Key (HEX)</a></h3>
+<h4 id="check-balance-value-from-ravencoin-rvn-address"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-ravencoin-address-"><code>Check Balance Value From Ravencoin (RVN) Address</code></a></h4>
+<h3 id="generated-via-address-from-private-key-hex"><a href="https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-via-address-from-private-key-hex">Generated VIA Address From Private Key (HEX)</a></h3>
+<hr />
+<p>installing and use need first download with git :</p>
+<pre><code class="language-bash">git clone https://github.com/Blockthon/Blockthon
+cd Blockthon
+# For First useing in Windows Just Run Make File For Installing Package's
+./make.bat
+# or
+pip install -r requirements.txt
+</code></pre>
+<p>on linux (debian) </p>
+<pre><code class="language-bash">
+sudo apt-get update&amp;&amp;sudo apt-get upgrade -y
+git clone https://github.com/Blockthon/Blockthon
+cd Blockthon
+pip3 install -r requirements.txt
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../example/" class="btn btn-neutral float-right" title="Example">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Blockthon/Blockthon" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../example/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
