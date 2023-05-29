@@ -18,67 +18,67 @@ How To Install Blockthon
 `Generated P2PKH / P2SH / P2WPKH / P2WSH / P2WSH in P2SH and P2WPKH in P2SH Bitcoin Address Type <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-p2pkh--p2sh--p2wpkh--p2wsh--p2wsh-in-p2sh-and-p2wpkh-in-p2sh-bitcoin-address-type-from-private-key-hex->`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Bitcoin Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-balance-value-bitcoin-wallet-address>`__
+`Check Balance Value From Bitcoin Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-balance-value-bitcoin-wallet-address>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated Ethereum Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-ethereum-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Ethereum Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-ethereum-address->`__
+`Check Balance Value From Ethereum Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-ethereum-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated TRON (TRX) Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-tron-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Tron Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-tron-address->`__
+`Check Balance Value From Tron Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-tron-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated Dogecoin Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-dogecoin-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Dogecoin Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-dogecoin-address->`__
+`Check Balance Value From Dogecoin Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-dogecoin-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated Dash Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-dash-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Dash Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-dash-address->`__
+`Check Balance Value From Dash Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-dash-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated Bitcoin Gold Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-bitcoin-gold-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Bitcoin Gold Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-bitcoin-gold-address->`__
+`Check Balance Value From Bitcoin Gold Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-bitcoin-gold-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated Litecoin Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-litecoin-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Litecoin Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-litecoin-address->`__
+`Check Balance Value From Litecoin Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-litecoin-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated Qtum Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-qtum-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From QTUM Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-qtum-address->`__
+`Check Balance Value From QTUM Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-qtum-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated DigiByte Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-DigiByte-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From DigiByte Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-digibyte-address->`__
+`Check Balance Value From DigiByte Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-digibyte-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated ZCASH Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-zcash-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From ZCASH Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-zcash-address->`__
+`Check Balance Value From ZCASH Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-zcash-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated Raven Coin Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-ravencoin-gold-address-from-private-key-hex>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-```Check Balance Value From Ravencoin (RVN) Address`` <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-ravencoin-address->`__
+`Check Balance Value From Ravencoin (RVN) Address <https://github.com/Blockthon/Blockthon/blob/main/README.md#check-value-balance-ravencoin-address->`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 `Generated VIA Address From Private Key (HEX) <https://github.com/Blockthon/Blockthon/blob/main/README.md#generated-via-address-from-private-key-hex>`__
