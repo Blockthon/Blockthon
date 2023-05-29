@@ -2,10 +2,20 @@
 Blockthon Python Package for Generate and Converting Wallet Private Key and Mnemonic for Address Bitcoin
 
 ```bash
+# on windows
+pip install Blockthon
+
+# on Linux
+pip3 install Blockthon
+```
+
+or for download manual:
+```bash
 git clone https://github.com/Blockthon/Blockthon
 cd Blockthon
 make
 ```
+
 
 ### Generate Private Key (Hex) [Random]:
 

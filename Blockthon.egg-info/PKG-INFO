@@ -1,21 +1,30 @@
+Metadata-Version: 2.1
+Name: Blockthon
+Version: 1.3.6
+Summary: Blockthon: Fast and easy generation of Private Keys and Mnemonics, converting Seed, Binary, and Decimal.
+Home-page: https://github.com/Blockthon/Blockthon
+Author: Pymmdrza
+Author-email: Pymmdrza@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://blockthon.readthedocs.io
+Project-URL: Personal Website, https://mmdrza.com
+Keywords: blockthon,bitcoin,ethereum,tron,dogecoin,dash,qtum,litecoin,bitcoingold,wallet,private key,mnemonic,seed,binary,hex,hunter,compress,un compress,compress address,un compress address
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # Blockthon
 Blockthon Python Package for Generate and Converting Wallet Private Key and Mnemonic for Address Bitcoin
 
-```bash
-# on windows
-pip install Blockthon
-
-# on Linux
-pip3 install Blockthon
-```
-
-or for download manual:
 ```bash
 git clone https://github.com/Blockthon/Blockthon
 cd Blockthon
 make
 ```
-
 
 ### Generate Private Key (Hex) [Random]:
 
@@ -368,3 +377,5 @@ do
   echo -ne "Total: $z $key\r"
 done
 ```
+
+

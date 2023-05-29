@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Fast and easy tool for generating private keys and mnemonics, converting seeds, binary, and decimal." /><meta name="author" content="Pymmdrza" /><link rel="canonical" href="https://blockthon.readthedocs.io/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Blockthon Documentation</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/";
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".">
+          <img src="images/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#generate-private-key-hex-random">Generate Private Key (Hex) [Random]:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#blockthon-python-example">Blockthon / Python Example:</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-compress-and-un-compress-bitcoin-wallet-address">Generated Compress and Un Compress Bitcoin Wallet Address :</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-p2pkh-p2sh-p2wpkh-p2wsh-p2wsh-in-p2sh-and-p2wpkh-in-p2sh-bitcoin-address-type-from-private-key-hex">Generated P2PKH , P2SH , P2WPKH , P2WSH , P2WSH in P2SH and P2WPKH in P2SH Bitcoin Address Type From Private Key (hex) :</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#check-balance-value-bitcoin-wallet-address">Check Balance (Value) Bitcoin Wallet Address:</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#for-check-balance-per-address-wallet-just-use-balance-for-bitcoin-addresss">for check balance per address wallet just use Balance() for bitcoin address's</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-ethereum-address-from-private-key-hex">Generated Ethereum Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-ethereum-address">Check Value Balance Ethereum Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-tron-address-from-private-key-hex">Generated Tron Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-tron-address">Check Value Balance Tron Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-dogecoin-address-from-private-key-hex">Generated Dogecoin Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-dogecoin-address">Check Value Balance Dogecoin Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-dash-address-from-private-key-hex">Generated Dash Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-dash-address">Check Value Balance Dash Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-bitcoin-gold-address-from-private-key-hex">Generated Bitcoin Gold Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-bitcoingold-address">Check Value Balance BitcoinGold Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-litecoin-address-from-private-key-hex">Generated Litecoin Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-litecoin-address">Check Value Balance Litecoin Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-ravencoin-address-from-private-key-hex">Generated Ravencoin Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-ravencoin-address">Check Value Balance Ravencoin Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-digibyte-address-from-private-key-hex">Generated DigiByte Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-digibyte-address">Check Value Balance DigiByte Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-via-address-from-private-key-hex">Generated VIA Address From Private Key (HEX):</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-qtum-address-from-private-key-hex">Generated QTUM Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-qtum-address">Check Value Balance Qtum Address :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generated-zcash-address-from-private-key-hex">Generated ZCASH Address From Private Key (HEX):</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#check-value-balance-zcash-address">Check Value Balance zCash Address :</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-blockthon-on-bash">Example Blockthon on bash:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="example/">Example</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="contact/">contact</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Blockthon Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Blockthon/Blockthon/edit/master/docs/index.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="blockthon">Blockthon</h1>
+<p>Blockthon Python Package for Generate and Converting Wallet Private Key and Mnemonic for Address Bitcoin</p>
+<pre><code class="language-bash">git clone https://github.com/Blockthon/Blockthon
+cd Blockthon
+make
+</code></pre>
+<h3 id="generate-private-key-hex-random">Generate Private Key (Hex) [Random]:</h3>
+<p>generated private key hex random with Blockthon in Python very fast for any os:</p>
+<pre><code class="language-python">import Blockthon
+PrivateKey = Blockthon.PrivateKey()
+</code></pre>
+<hr />
+<h2 id="blockthon-python-example">Blockthon / <code>Python</code> Example:</h2>
+<hr />
+<p>Generated Compressed Address and Un Compressed Address Wallet Bitcoin From Private Key Hex : example to <a href="https://github.com/Blockthon/Blockthon/blob/main/example/AddrFromHex_CheckBalance.py"> <code>AddrFromHex_CheckBalance.py</code> </a></p>
+<hr />
+<h3 id="generated-compress-and-un-compress-bitcoin-wallet-address">Generated <code>Compress</code> and <code>Un Compress</code> Bitcoin Wallet Address :</h3>
+<pre><code class="language-python">import Blockthon as block
+
+PrivateKey_ = block.PrivateKey()
+# Un Compress Bitcoin Wallet Address [Default : compress=false]
+unCompress_Address = block.Addr_From_PrivateKey(PrivateKey_)
+# Compress Bitcoin Wallet Address [Default : compress=True]
+Compress_Address = block.Addr_From_PrivateKey(PrivateKey_, True)
+</code></pre>
+<h3 id="generated-p2pkh-p2sh-p2wpkh-p2wsh-p2wsh-in-p2sh-and-p2wpkh-in-p2sh-bitcoin-address-type-from-private-key-hex">Generated <code>P2PKH</code> , <code>P2SH</code> , <code>P2WPKH</code> , <code>P2WSH</code> , <code>P2WSH in P2SH</code> and <code>P2WPKH in P2SH</code> Bitcoin Address Type From Private Key (hex) :</h3>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Private Key (HEX)
+privatekey = block.PrivateKey()
+# Generated P2PKH Address Bitcoin Address :
+p2pkh = block.P2PKH_From_PrivateKey(privatekey)
+# Generated P2SH Address Bitcoin Address :
+p2sh = block.P2SH_From_PrivateKey(privatekey)
+# Generated P2PKH Address Bitcoin Address :
+p2wpkh = block.P2WPKH_From_PrivateKey(privatekey)
+# Generated P2WSH Address Bitcoin Address :
+p2wsh = block.P2WSH_From_PrivateKey(privatekey)
+# Generated P2WPKH in P2SH Address Bitcoin Address :
+p2wpkh_p2sh = block.P2WPKH_in_P2SH_From_PrivateKey(privatekey)
+# Generated P2WSH in P2SH Address Bitcoin Address :
+p2wsh_in_p2sh = block.P2WSH_in_P2SH_From_PrivateKey(privatekey)
+</code></pre>
+<h3 id="check-balance-value-bitcoin-wallet-address">Check Balance (Value) Bitcoin Wallet Address:</h3>
+<h4 id="for-check-balance-per-address-wallet-just-use-balance-for-bitcoin-addresss">for check balance per address wallet just use <code>Balance()</code> for bitcoin address's</h4>
+<pre><code class="language-python">import Blockthon as block
+
+bitcoinAddress = &quot;179nEQKfizafpVkefed4XVSpdUpXzRSSvm&quot;
+balance_string = block.Balance(bitcoinAddress)
+
+</code></pre>
+<h3 id="generated-ethereum-address-from-private-key-hex">Generated Ethereum Address From Private Key (HEX):</h3>
+<p>generated ethereum address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.ETH_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated Ethereum Address From Private Key (HEX)
+ethereum_Address = block.ETH_From_PrivateKey(privatekey)
+
+</code></pre>
+<h4 id="check-value-balance-ethereum-address">Check Value Balance Ethereum Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+address = &quot;0xe36B47dC83228FA6c3a50B07A820d3CdF7fAa700&quot;
+# Check Value Balance Return [str]
+balance = block.Balance_Ethereum(address)
+</code></pre>
+<hr />
+<h3 id="generated-tron-address-from-private-key-hex">Generated Tron Address From Private Key (HEX):</h3>
+<p>generated Tron address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.TRX_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated Tron Address From Private Key (HEX)
+Tron_Address = block.TRX_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-tron-address">Check Value Balance Tron Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+address = &quot;TDbLEetdDFLJcq19DrKk3yJAHpWfkQ418r&quot;
+# Check Value Balance Return [str]
+balance = block.Balance_Tron(address)
+</code></pre>
+<hr />
+<h3 id="generated-dogecoin-address-from-private-key-hex">Generated Dogecoin Address From Private Key (HEX):</h3>
+<p>generated Dogecoin address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.DOGE_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated Dogecoin Address From Private Key (HEX)
+Dogecoin_Address = block.DOGE_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-dogecoin-address">Check Value Balance Dogecoin Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Dogecoin(Dogecoin_Address)
+</code></pre>
+<hr />
+<h3 id="generated-dash-address-from-private-key-hex">Generated Dash Address From Private Key (HEX):</h3>
+<p>generated Dash address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.DASH_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated Dash Address From Private Key (HEX)
+Dash_Address = block.DASH_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-dash-address">Check Value Balance Dash Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Dash(Dash_Address)
+</code></pre>
+<hr />
+<h3 id="generated-bitcoin-gold-address-from-private-key-hex">Generated Bitcoin Gold Address From Private Key (HEX):</h3>
+<p>generated Bitcoin Gold address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.BTG_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated Bitcoin Gold Address From Private Key (HEX)
+BitcoinGold_Address = block.BTG_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-bitcoingold-address">Check Value Balance BitcoinGold Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_BitcoinGold(BitcoinGold_Address)
+</code></pre>
+<h3 id="generated-litecoin-address-from-private-key-hex">Generated Litecoin Address From Private Key (HEX):</h3>
+<p>generated Litecoin address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.LTC_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated Litecoin Address From Private Key (HEX)
+Litecoin_Address = block.LTC_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-litecoin-address">Check Value Balance Litecoin Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Litecoin(Litecoin_Address)
+</code></pre>
+<hr />
+<h3 id="generated-ravencoin-address-from-private-key-hex">Generated Ravencoin Address From Private Key (HEX):</h3>
+<p>generated Ravencoin address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.RVN_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated Ravencoin Address From Private Key (HEX)
+Ravencoin_Address = block.RVN_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-ravencoin-address">Check Value Balance Ravencoin Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Ravencoin(Ravencoin_Address)
+</code></pre>
+<hr />
+<h3 id="generated-digibyte-address-from-private-key-hex">Generated DigiByte Address From Private Key (HEX):</h3>
+<p>generated DigiByte address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.DigiByte_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated DigiByte Address From Private Key (HEX)
+DigiByte_Address = block.DigiByte_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-digibyte-address">Check Value Balance DigiByte Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_DigiByte(DigiByte_Address)
+</code></pre>
+<hr />
+<h3 id="generated-via-address-from-private-key-hex">Generated VIA Address From Private Key (HEX):</h3>
+<p>generated VIA address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.VIA_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated VIA Address From Private Key (HEX)
+VIA_Address = block.VIA_From_PrivateKey(privatekey)
+</code></pre>
+<hr />
+<h3 id="generated-qtum-address-from-private-key-hex">Generated QTUM Address From Private Key (HEX):</h3>
+<p>generated QTUM address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.QTUM_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated QTUM Address From Private Key (HEX)
+QTUM_Address = block.QTUM_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-qtum-address">Check Value Balance Qtum Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_Qtum(Qtum_Address)
+</code></pre>
+<hr />
+<h3 id="generated-zcash-address-from-private-key-hex">Generated ZCASH Address From Private Key (HEX):</h3>
+<p>generated ZCASH address wallet from private key (hex) , in this example first generated private key random , after that generated address from private key with <code>block.ZEC_From_PrivateKey(privatekey)</code>, first needed import <code>import Blockthon as block</code> .</p>
+<pre><code class="language-python">import Blockthon as block
+
+# Generated Random Hex (Private key)
+privatekey = block.PrivateKey()
+# Generated ZEC Address From Private Key (HEX)
+ZEC_Address = block.ZEC_From_PrivateKey(privatekey)
+</code></pre>
+<h4 id="check-value-balance-zcash-address">Check Value Balance zCash Address :</h4>
+<pre><code class="language-python">import Blockthon as block
+
+# Check Value Balance Return [str]
+balance = block.Balance_zCash(zCash_Address)
+</code></pre>
+<hr />
+<h4 id="example-blockthon-on-bash">Example Blockthon on <code>bash</code>:</h4>
+<pre><code class="language-bash">source Blockthon.sh
+
+# counter for total generated
+count=0
+# for repeate new generated
+while true
+do
+    ((count++))
+    # from blockthon file import for generated new private key
+    key=$(PrivateKey)
+    # for print or echo detail's
+    echo $count $key
+done
+
+</code></pre>
+<p>Generated Random Private Key from Integer (Number) on bash With Blockthon:</p>
+<pre><code class="language-bash">#!/bin/bash
+source Blockthon.sh
+
+z=0
+while true
+do
+  d=$((19999999999999999 + RANDOM % 999999999999999999999999999999999999))
+  key=$(PrivateKey $d)
+  ((z++))
+  echo -ne &quot;Total: $z $key\r&quot;
+done
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="faq/" class="btn btn-neutral float-right" title="FAQ">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Blockthon/Blockthon" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+      <span><a href="faq/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.4.3
+Build Date UTC : 2023-05-29 02:58:08.970095+00:00
+-->
