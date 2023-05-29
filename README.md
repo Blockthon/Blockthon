@@ -1,11 +1,17 @@
 # Blockthon
 Blockthon Python Package for Generate and Converting Wallet Private Key and Mnemonic for Address Bitcoin
 
+#### Install Blockthon On Windows
 ```bash
 # on windows
 pip install Blockthon
+```
 
-# on Linux
+#### Install Blockthon On Linux / Debian:
+```bash
+sudo apt-get update&&sudo apt-get upgrade -y
+sudo apt-get install autoconf automake -y
+sudo apt-get install gcc libffi-dev -y
 pip3 install Blockthon
 ```
 
