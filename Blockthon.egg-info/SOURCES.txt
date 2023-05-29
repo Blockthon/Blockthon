@@ -1,8 +1,0 @@
-LICENSE
-README.md
-setup.py
-Blockthon.egg-info/PKG-INFO
-Blockthon.egg-info/SOURCES.txt
-Blockthon.egg-info/dependency_links.txt
-Blockthon.egg-info/requires.txt
-Blockthon.egg-info/top_level.txt
