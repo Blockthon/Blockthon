@@ -1,0 +1,29 @@
+Blockthon License Agreement
+
+This license agreement ("Agreement") is a legal agreement between you (the "Licensee") and the creator of Blockthon (the "Licensor"). By using or accessing the Blockthon package, you agree to be bound by the terms of this Agreement.
+
+1. License Grant:
+   The Licensor grants the Licensee a non-exclusive, non-transferable license to use, copy, modify, and distribute the Blockthon package, subject to the terms and conditions of this Agreement.
+
+2. Purpose:
+   Blockthon is a package designed to generate and convert private keys, mnemonics, addresses (both compressed and uncompressed) for various cryptocurrencies. It provides functionality for cryptographic operations related to these entities.
+
+3. Restrictions:
+   a. The Licensee shall not distribute or sublicense the Blockthon package to any third party without prior written consent from the Licensor.
+   b. The Licensee shall not modify, reverse engineer, decompile, or disassemble the Blockthon package, except as expressly permitted by applicable law.
+   c. The Licensee shall not use the Blockthon package for any illegal or unauthorized purpose.
+
+4. Ownership:
+   The Licensor retains all rights, title, and interest in and to the Blockthon package, including any intellectual property rights. This Agreement does not transfer ownership of the Blockthon package to the Licensee.
+
+5. Disclaimer of Warranty:
+   The Blockthon package is provided "as is," without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. The Licensor does not guarantee the accuracy, reliability, or suitability of the Blockthon package for any specific purpose.
+
+6. Limitation of Liability:
+   The Licensor shall not be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services, loss of use, data, or profits) arising in any way out of the use, distribution, or performance of the Blockthon package.
+
+7. Governing Law:
+   This Agreement shall be governed by and construed in accordance with the laws of [Jurisdiction]. Any disputes arising under or in connection with this Agreement shall be subject to the exclusive jurisdiction of the courts of [Jurisdiction].
+
+By using the Blockthon package, you acknowledge that you have read this Agreement, understand it, and agree to be bound by its terms and conditions.
+
