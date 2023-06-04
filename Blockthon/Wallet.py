@@ -17,6 +17,7 @@ from .Utils import (
     PrivateKey,
     getMnemonic,
     getBytes,
+    getBin,
     Mnemonic_To_Bytes,
     Mnemonic_To_RootKey,
     Bytes_To_PrivateKey,

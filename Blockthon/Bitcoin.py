@@ -1,4 +1,9 @@
 from .Utils import (
+    Wif_To_DEC,
+    Wif_To_Addr,
+    Wif_To_HEX,
+    Mnemonic_To_Bytes,
+    Bytes_To_PrivateKey as Bytes_To_HEX,
     PrivateKey_To_Addr,
     PrivateKey_To_Mnemonics,
     PrivateKey_From_Passphrase as Word_To_Hex,
@@ -77,6 +82,25 @@ def PrivateKey_To_Mnemonic(privatekey): return PrivateKey_To_Mnemonics(privateke
 # convert Private Key HEX To Word Character and Return word string
 def PrivateKey_From_Passphrase(passphrase): return Word_To_Hex(passphrase)
 
+
+def Mnemonic_To_PrivateKey(mnemonicWords):
+    """
+    convert mnemonic to private key hex
+    @param mnemonicWords: string
+    @return: privatekey [string]
+    """
+    byte_string = Mnemonic_To_Bytes(mnemonicWords)
+    return Bytes_To_PrivateKey(byte_string)
+
+
+def Bytes_To_PrivateKey(byteString): return Bytes_To_HEX(byteString)
+
+
+def Wif_To_PrivateKey(wif): return Wif_To_HEX(wif)
+
+def Wif_To_Dec(wif): return Wif_To_DEC(wif)
+
+def Wif_To_Address(wif): return Wif_To_Addr(wif)
 
 # Send Request For Per Address Balance and Return Value Balance [string]
 def Balance_BTC(address): return Btc_Balance(address)

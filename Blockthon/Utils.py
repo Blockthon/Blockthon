@@ -133,6 +133,19 @@ def PublicKey_To_Addr(public_key):
     addrHex = (NetBTCBytePubKey + checksum).decode('utf-8')
     return Base58_(addrHex)
 
+# =========================================================
+
+def getBin(size=256):
+    """ Generated Random Binary : return [str]
+    :param size:
+    :type size: int
+    :return: str
+    """
+    bs_ = ''
+    for _ in range(size):
+        bs_ += random.choice(['0', '1'])
+    return bs_
+
 
 # ==========================================================
 
@@ -237,6 +250,21 @@ def Bytes_To_PublicKey(bytestring, compress=False):
         return PrivateKey_To_PublicKey(Bytes_To_PrivateKey(bytestring), True)
     else:
         return PrivateKey_To_PublicKey(Bytes_To_PrivateKey(bytestring))
+
+# -------------------------------------------------------------------------------
+
+def Wif_To_Addr(wif):
+    btc = Wallet(wif)
+    return btc.address
+
+
+def Wif_To_HEX(wif):
+    btc = Wallet(wif)
+    return btc.to_hex()
+
+def Wif_To_DEC(wif):
+    btc = Wallet(wif)
+    return btc.to_int()
 
 # --------------------------------------------------------------------------------
 # Check Value Bitcoin Address Balance Return [str]
