@@ -100,8 +100,9 @@ ethAddress = PrivateKey_To_ETH(privatekey)
 ### convert private key to zCash address : [ `Example Link` ](https://github.com/Blockthon/Blockthon/blob/main/Example/33_zCash_Wallet.md)
 `generated and convert private key hex to zcash (zec) address`
 
+---
 
-
+[![asciicast](https://asciinema.org/a/590054.svg)](https://asciinema.org/a/590054)
 ---
 
 ### Example `Blockthon`:
