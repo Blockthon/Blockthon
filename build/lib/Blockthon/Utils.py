@@ -1,4 +1,14 @@
-from binascii import hexlify as _decode
+# Programmer & Owner Mmdrza.Com
+# Medium : https://mdrza.Medium.com
+# Github : https://github.com/Pymmdrza
+# Blockthon : https://github.com/Blockthon/Blockthon
+# ---------------------------------------------------
+# ╔╦╗╔╦╗╔╦╗╦═╗╔═╗╔═╗ ╔═╗╔═╗╔╦╗
+# ║║║║║║ ║║╠╦╝╔═╝╠═╣ ║  ║ ║║║║
+# ╩ ╩╩ ╩═╩╝╩╚═╚═╝╩ ╩o╚═╝╚═╝╩ ╩
+# ---------------------------------------------------
+
+from binascii import hexlify as _decode, unhexlify as UnHex
 from bip32utils import BIP32Key
 from .Base58 import b58_decode, b58check_decode, b58check_encode, b58_encode, Base58_
 from hdwallet import HDWallet as Wallet_
@@ -7,7 +17,7 @@ from mnemonic import Mnemonic
 from bit.format import bytes_to_wif as Bytes_To_Wif
 from bit import Key as Wallet
 from hashlib import sha256 as _SHA256, new as New_, sha512 as _SHA512
-import codecs, os, re, random, pbkdf2, requests, json, hmac
+import sys, os, re, random, pbkdf2, requests, json, hmac, binascii, hashlib, base58, sys, ecdsa, codecs
 
 
 def SHA256(bytestring): return _SHA256(bytestring).digest()
@@ -22,9 +32,15 @@ def Double_SHA256_Checksum(bytestring): return Double_SHA256(bytestring)[:4]
 def RIPEMD160_SHA256(bytestring): return New_('ripemd160', _SHA256(bytestring)).digest()
 
 
+# ╔═╗╦═╗╦╦  ╦╔═╗╔╦╗╔═╗╦╔═╔═╗╦ ╦
+# ╠═╝╠╦╝║╚╗╔╝╠═╣ ║ ║╣ ╠╩╗║╣ ╚╦╝
+# ╩  ╩╚═╩ ╚╝ ╩ ╩ ╩ ╚═╝╩ ╩╚═╝ ╩
 def PrivateKey(): return os.urandom(32).hex()
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╦ ╦╦╔═╗
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ║║║║╠╣ 
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╚╩╝╩╚
 def PrivateKey_To_Wif(privatekey, compress=False):
     byte_string = PrivateKey_To_Bytes(privatekey)
     if compress:
@@ -35,6 +51,9 @@ def PrivateKey_To_Wif(privatekey, compress=False):
     return wif
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔═╗╔╦╗╔╦╗╦═╗
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ╠═╣ ║║ ║║╠╦╝
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╩ ╩═╩╝═╩╝╩╚═
 def PrivateKey_To_Addr(privatekey, compress=False):
     if compress:
         wif = PrivateKey_To_Wif(privatekey, compress=True)
@@ -46,9 +65,15 @@ def PrivateKey_To_Addr(privatekey, compress=False):
         return bitu.address
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔╗ ╦ ╦╔╦╗╔═╗╔═╗
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ╠╩╗╚╦╝ ║ ║╣ ╚═╗
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╚═╝ ╩  ╩ ╚═╝╚═╝
 def PrivateKey_To_Bytes(privatekey): return codecs.decode(privatekey, 'hex')
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔╦╗╔╗╔╔═╗╔╦╗╔═╗╔╗╔╦╔═╗
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ║║║║║║║╣ ║║║║ ║║║║║║
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╩ ╩╝╚╝╚═╝╩ ╩╚═╝╝╚╝╩╚═╝
 def PrivateKey_To_Mnemonics(privatekey):
     """
     Convert HEX To Bytes , after converting , convert to Mnemonic (WORD)
@@ -65,17 +90,29 @@ def PrivateKey_To_Mnemonics(privatekey):
     return Mnemonic('english').to_mnemonic(byte_string)
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔╗ ╦╔╗╔
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ╠╩╗║║║║
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╚═╝╩╝╚╝
 def PrivateKey_To_Binary(privatekey): return bin(int(privatekey, 16))[2:].zfill(256)
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔╦╗╔═╗╔═╗
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║   ║║║╣ ║  
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ═╩╝╚═╝╚═╝
 def PrivateKey_To_Dec(privatekey): return int(privatekey, 16)
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔═╗╦ ╦╔╗   ╦ ╦╔═╗╔═╗╦ ╦
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ╠═╝║ ║╠╩╗  ╠═╣╠═╣╚═╗╠═╣
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╩  ╚═╝╚═╝  ╩ ╩╩ ╩╚═╝╩ ╩
 def PrivateKey_To_PublicHash(privatekey):
     w: Wallet_ = Wallet_(symbol=BTC)
     return w.hash(privatekey)
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔═╗╦ ╦╔╗ 
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ╠═╝║ ║╠╩╗
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╩  ╚═╝╚═╝
 def PrivateKey_To_PublicKey(privatekey, compress=False):
     hd: Wallet_ = Wallet_(symbol=BTC)
     hd.from_private_key(privatekey)
@@ -85,33 +122,56 @@ def PrivateKey_To_PublicKey(privatekey, compress=False):
         return hd.public_key(False, privatekey)
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ═╗ ╦╔═╗╦═╗╦  ╦
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ╔╩╦╝╠═╝╠╦╝╚╗╔╝
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╩ ╚═╩  ╩╚═ ╚╝ 
 def PrivateKey_To_RootKey(privatekey): return Mnemonic_To_RootKey(PrivateKey_To_Mnemonics(privatekey))
 
 
+# ╔═╗╔═╗╔═╗╔═╗╔═╗╦ ╦╦═╗╔═╗╔═╗╔═╗  ╔╦╗╔═╗  ╦ ╦╔═╗═╗ ╦
+# ╠═╝╠═╣╚═╗╚═╗╠═╝╠═╣╠╦╝╠═╣╚═╗║╣    ║ ║ ║  ╠═╣║╣ ╔╩╦╝
+# ╩  ╩ ╩╚═╝╚═╝╩  ╩ ╩╩╚═╩ ╩╚═╝╚═╝   ╩ ╚═╝  ╩ ╩╚═╝╩ ╚═
 def PrivateKey_From_Passphrase(passphrase): return str(_SHA256(passphrase.encode('utf-8')).hexdigest())
 
 
+# ═╗ ╦╔═╗╦═╗╦  ╦  ╔╦╗╔═╗  ╦ ╦╔═╗═╗ ╦
+# ╔╩╦╝╠═╝╠╦╝╚╗╔╝   ║ ║ ║  ╠═╣║╣ ╔╩╦╝
+# ╩ ╚═╩  ╩╚═ ╚╝    ╩ ╚═╝  ╩ ╩╚═╝╩ ╚═
 def PrivateKey_From_RootKey(xprv):
     deco_ = b58check_decode(xprv)
     pvk_b_ = deco_[46:78]
     return pvk_b_.hex()
 
 
+#  ╔╗ ╦╔╗╔╔═╗╦═╗╦ ╦  ╔╦╗╔═╗  ╦ ╦╔═╗═╗ ╦
+#  ╠╩╗║║║║╠═╣╠╦╝╚╦╝   ║ ║ ║  ╠═╣║╣ ╔╩╦╝
+#  ╚═╝╩╝╚╝╩ ╩╩╚═ ╩    ╩ ╚═╝  ╩ ╩╚═╝╩ ╚═
 def PrivateKey_From_Binary(Bin_string): return hex(int(Bin_string, 2))[2:].zfill(32)
 
-
+# ╔╗╔╦ ╦╔╦╗╔╗ ╔═╗╦═╗  ╔╦╗╔═╗  ╦ ╦╔═╗═╗ ╦
+# ║║║║ ║║║║╠╩╗║╣ ╠╦╝   ║ ║ ║  ╠═╣║╣ ╔╩╦╝
+# ╝╚╝╚═╝╩ ╩╚═╝╚═╝╩╚═   ╩ ╚═╝  ╩ ╩╚═╝╩ ╚═
 def PrivateKey_From_Dec(dec): return "%064x" % dec
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╔═╗╔═╗╔╦╗╔═╗╦═╗╔═╗╔═╗╔═╗  ╔═╗╔╦╗╔╦╗╦═╗
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ║  ║ ║║║║╠═╝╠╦╝║╣ ╚═╗╚═╗  ╠═╣ ║║ ║║╠╦╝
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╚═╝╚═╝╩ ╩╩  ╩╚═╚═╝╚═╝╚═╝  ╩ ╩═╩╝═╩╝╩╚═
 def PrivateKey_To_Compress_Addr(privatekey): return PrivateKey_To_Addr(privatekey, compress=True)
 
 
+# ╦ ╦╔═╗═╗ ╦  ╔╦╗╔═╗  ╦ ╦╔╗╔╔═╗╔═╗╔╦╗╔═╗╦═╗╔═╗╔═╗╔═╗  ╔═╗╔╦╗╔╦╗╦═╗
+# ╠═╣║╣ ╔╩╦╝   ║ ║ ║  ║ ║║║║║  ║ ║║║║╠═╝╠╦╝║╣ ╚═╗╚═╗  ╠═╣ ║║ ║║╠╦╝
+# ╩ ╩╚═╝╩ ╚═   ╩ ╚═╝  ╚═╝╝╚╝╚═╝╚═╝╩ ╩╩  ╩╚═╚═╝╚═╝╚═╝  ╩ ╩═╩╝═╩╝╩╚═
 def PrivateKey_To_UnCompress_Addr(privatekey): return PrivateKey_To_Addr(privatekey)
 
 
 HASH160 = RIPEMD160_SHA256
 
 
+# ╔═╗╦ ╦╔╗   ╔╦╗╔═╗  ╔═╗╔╦╗╔╦╗╦═╗
+# ╠═╝║ ║╠╩╗   ║ ║ ║  ╠═╣ ║║ ║║╠╦╝
+# ╩  ╚═╝╚═╝   ╩ ╚═╝  ╩ ╩═╩╝═╩╝╩╚═
 def PublicKey_To_Addr(public_key):
     PublicKeyByte = codecs.decode(public_key, 'hex')
     sha256_bpk = _SHA256(PublicKeyByte)
@@ -133,8 +193,12 @@ def PublicKey_To_Addr(public_key):
     addrHex = (NetBTCBytePubKey + checksum).decode('utf-8')
     return Base58_(addrHex)
 
+
 # =========================================================
 
+# ╔╗ ╦╔╗╔╔═╗╦═╗╦ ╦
+# ╠╩╗║║║║╠═╣╠╦╝╚╦╝
+# ╚═╝╩╝╚╝╩ ╩╩╚═ ╩ 
 def getBin(size=256):
     """ Generated Random Binary : return [str]
     :param size:
@@ -149,6 +213,9 @@ def getBin(size=256):
 
 # ==========================================================
 
+# ╔╦╗╔╗╔╔═╗╔╦╗╔═╗╔╗╔╦╔═╗
+# ║║║║║║║╣ ║║║║ ║║║║║║  
+# ╩ ╩╝╚╝╚═╝╩ ╩╚═╝╝╚╝╩╚═╝
 def getMnemonic(size=12):
     """
 Generate random mnemonic (word's) with size . size default= 12
@@ -164,10 +231,16 @@ Generate random mnemonic (word's) with size . size default= 12
     return str(ml).lower()
 
 
+# ╔╦╗╔╗╔╔═╗╔╦╗╔═╗╔╗╔╦╔═╗  ╔╦╗╔═╗  ╔╗ ╦ ╦╔╦╗╔═╗╔═╗
+# ║║║║║║║╣ ║║║║ ║║║║║║     ║ ║ ║  ╠╩╗╚╦╝ ║ ║╣ ╚═╗
+# ╩ ╩╝╚╝╚═╝╩ ╩╚═╝╝╚╝╩╚═╝   ╩ ╚═╝  ╚═╝ ╩  ╩ ╚═╝╚═╝
 def Mnemonic_To_Bytes(mnemonicWords):
     return _SHA256(mnemonicWords.encode('utf-8')).digest()
 
 
+# ╔╦╗╔╗╔╔═╗╔╦╗╔═╗╔╗╔╦╔═╗  ╔╦╗╔═╗  ═╗ ╦╔═╗╦═╗╦  ╦
+# ║║║║║║║╣ ║║║║ ║║║║║║     ║ ║ ║  ╔╩╦╝╠═╝╠╦╝╚╗╔╝
+# ╩ ╩╝╚╝╚═╝╩ ╩╚═╝╝╚╝╩╚═╝   ╩ ╚═╝  ╩ ╚═╩  ╩╚═ ╚╝
 def Mnemonic_To_RootKey(mnemonic_words):
     mnemonic_ = ''.join(c for c in mnemonic_words if c.isalnum())
     mnemonic_ = mnemonic_.split(' ')
@@ -251,7 +324,99 @@ def Bytes_To_PublicKey(bytestring, compress=False):
     else:
         return PrivateKey_To_PublicKey(Bytes_To_PrivateKey(bytestring))
 
+
 # -------------------------------------------------------------------------------
+
+def HexToBytes(data): return codecs.decode(data, 'hex')
+
+
+def BytesToHex(data): return codecs.encode(data, 'hex')
+
+
+def PVK_To_Wif_UnCompress(privatekey):
+    private_key_static = privatekey
+    extended_key = "80" + private_key_static
+    first_sha256 = hashlib.sha256(binascii.unhexlify(extended_key)).hexdigest()
+    second_sha256 = hashlib.sha256(binascii.unhexlify(first_sha256)).hexdigest()
+    final_key = extended_key + second_sha256[:8]
+    UNCOMPRESS_WIF = base58.b58encode(binascii.unhexlify(final_key)).decode('utf-8')
+    return UNCOMPRESS_WIF
+
+
+def PVK_To_Wif_Compress(privatekey):
+    private_key_static = privatekey
+    extended_key = "80" + private_key_static + '01'
+    first_sha256 = hashlib.sha256(binascii.unhexlify(extended_key)).hexdigest()
+    second_sha256 = hashlib.sha256(binascii.unhexlify(first_sha256)).hexdigest()
+    final_key = extended_key + second_sha256[:8]
+    COMPRESS_WIF = base58.b58encode(binascii.unhexlify(final_key)).decode('utf-8')
+    return COMPRESS_WIF
+
+
+def PrivateKey_To_UnCompress_Address(privatekey):
+    bytes_string = HexToBytes(privatekey)
+    zk = ecdsa.SigningKey.from_string(bytes_string, curve=ecdsa.SECP256k1)
+    z_public_key = b'\x04' + zk.verifying_key.to_string()
+
+    ripemd160 = hashlib.new('ripemd160')
+    ripemd160.update(hashlib.sha256(z_public_key).digest())
+    ripemd160_result = ripemd160.hexdigest()
+    step3 = '00' + ripemd160_result
+    second_sha256 = hashlib.sha256(binascii.unhexlify(step3)).hexdigest()
+    third_sha256 = hashlib.sha256(binascii.unhexlify(second_sha256)).hexdigest()
+    step6 = third_sha256[:8]
+    step7 = step3 + step6
+    UnCompressAddr = base58.b58encode(binascii.unhexlify(step7)).decode('utf-8')
+    return UnCompressAddr
+
+
+def PrivateKey_To_Compress_Address(privatekey):
+    pvk_to_bytes = codecs.decode(privatekey, 'hex')
+    key = ecdsa.SigningKey.from_string(pvk_to_bytes, curve=ecdsa.SECP256k1).verifying_key
+    key_bytes = key.to_string()
+    key_hex = codecs.encode(key_bytes, 'hex').decode('utf-8')
+
+    if ord(bytearray.fromhex(key_hex[-2:])) % 2 == 0:
+        PUB_COMPRESS = '02' + key_hex[0:64]
+        PUB_BYTE_STRING = codecs.decode(PUB_COMPRESS, 'hex')
+        PUB_COMPRESS_256 = hashlib.sha256(PUB_BYTE_STRING)
+        PUB_COMPRESS_256_DIGEST = PUB_COMPRESS_256.digest()
+        ripemd160 = hashlib.new('ripemd160')
+        ripemd160.update(PUB_COMPRESS_256_DIGEST)
+        RIPEMD160_DIGEST = ripemd160.digest()
+        RIPEMD160_HEX = codecs.encode(RIPEMD160_DIGEST, 'hex')
+        PUB_COMPRESS_NETWORK = b'00' + RIPEMD160_HEX
+        PUB_COMPRESS_NETWORK_BYTE = codecs.decode(PUB_COMPRESS_NETWORK, 'hex')
+        SHA256_I = hashlib.sha256(PUB_COMPRESS_NETWORK_BYTE)
+        SHA256_I_DIGEST = SHA256_I.digest()
+        SHA256_II = hashlib.sha256(SHA256_I_DIGEST)
+        SHA256_II_DIGEST = SHA256_II.digest()
+        SH256_II_HEX = codecs.encode(SHA256_II_DIGEST, 'hex')
+        CHECKSUM_COMPRESS = SH256_II_HEX[:8]
+        ADDR_COMPRESS_HEX = (PUB_COMPRESS_NETWORK + CHECKSUM_COMPRESS).decode('utf-8')
+        COMPRESS = base58.b58encode(binascii.unhexlify(ADDR_COMPRESS_HEX)).decode('utf-8')
+        return COMPRESS
+    else:
+        PUB_COMPRESS = '03' + key_hex[0:64]
+        PUB_BYTE_STRING = codecs.decode(PUB_COMPRESS, 'hex')
+        PUB_COMPRESS_256 = hashlib.sha256(PUB_BYTE_STRING)
+        PUB_COMPRESS_256_DIGEST = PUB_COMPRESS_256.digest()
+        ripemd160 = hashlib.new('ripemd160')
+        ripemd160.update(PUB_COMPRESS_256_DIGEST)
+        RIPEMD160_DIGEST = ripemd160.digest()
+        RIPEMD160_HEX = codecs.encode(RIPEMD160_DIGEST, 'hex')
+        PUB_COMPRESS_NETWORK = b'00' + RIPEMD160_HEX
+        PUB_COMPRESS_NETWORK_BYTE = codecs.decode(PUB_COMPRESS_NETWORK, 'hex')
+        SHA256_I = hashlib.sha256(PUB_COMPRESS_NETWORK_BYTE)
+        SHA256_I_DIGEST = SHA256_I.digest()
+        SHA256_II = hashlib.sha256(SHA256_I_DIGEST)
+        SHA256_II_DIGEST = SHA256_II.digest()
+        SH256_II_HEX = codecs.encode(SHA256_II_DIGEST, 'hex')
+        CHECKSUM_COMPRESS = SH256_II_HEX[:8]
+        ADDR_COMPRESS_HEX = (PUB_COMPRESS_NETWORK + CHECKSUM_COMPRESS).decode('utf-8')
+        COMPRESS = base58.b58encode(binascii.unhexlify(ADDR_COMPRESS_HEX)).decode('utf-8')
+        return COMPRESS
+
 
 def Wif_To_Addr(wif):
     btc = Wallet(wif)
@@ -262,9 +427,43 @@ def Wif_To_HEX(wif):
     btc = Wallet(wif)
     return btc.to_hex()
 
+
 def Wif_To_DEC(wif):
     btc = Wallet(wif)
     return btc.to_int()
+
+
+def PrivateKey_To_Address(privatekey, compress=False):
+    """
+    >>> from Blockthon.Wallet import PrivateKey_To_Address
+    >>> private_key = "PRIVATEKEY_HEX_STRING"
+    >>> compressed_Address = PrivateKey_To_Address(private_key, compress=True)
+    >>> uncompressed_Address = PrivateKey_To_Address(private_key, compress=False)
+    :param privatekey:
+    :param compress:
+    :return: address
+    """
+    if compress:
+        return PrivateKey_To_Compress_Address(privatekey)
+    else:
+        return PrivateKey_To_UnCompress_Address(privatekey)
+
+
+def PrivateKey_To_WIF(privatekey, compress=False):
+    """
+    >>> from Blockthon.Wallet import PrivateKey_To_WIF
+    >>> compressed_WIF = PrivateKey_To_WIF(privatekey, compress=True)
+    >>> uncompressed_WIF = PrivateKey_To_WIF(privatekey, compress=False)
+
+    :param privatekey:
+    :param compress:
+    :return: WIF
+    """
+    if compress:
+        return PVK_To_Wif_Compress(privatekey)
+    else:
+        return PVK_To_Wif_UnCompress(privatekey)
+
 
 # --------------------------------------------------------------------------------
 # Check Value Bitcoin Address Balance Return [str]
@@ -272,11 +471,13 @@ def Btc_Balance(addr):
     req = requests.get(f"https://bitcoin.atomicwallet.io/api/v2/address/{addr}").json()
     return dict(req)['balance']
 
+
 # --------------------------------------------------------------------------------
 # Check Value Ethereum Address Balance Return [str]
 def Eth_Balance(addr):
     req = requests.get(f"https://ethereum.atomicwallet.io/api/v2/address/{addr}").json()
     return dict(req)['balance']
+
 
 # --------------------------------------------------------------------------------
 # Check Value Litecoin Address Balance Return [str]
@@ -285,12 +486,14 @@ def Ltc_Balance(address):
     req = requests.get(f"https://litecoin.atomicwallet.io/api/v2/address/{address}").json()
     return dict(req)['balance']
 
+
 # --------------------------------------------------------------------------------
 # Check Value TRON Address Balance Return [str]
 def Trx_Balance(address):
     """ Check Value TRON Address Balance Return [str] """
     req = requests.get(f"https://apilist.tronscanapi.com/api/accountv2?address={address}&source=true").json()
     return dict(req)['balance']
+
 
 # --------------------------------------------------------------------------------
 # Check Value Dogecoin Address Balance Return [str]
@@ -299,12 +502,14 @@ def Doge_Balance(address):
     req = requests.get(f"https://dogecoin.atomicwallet.io/api/v2/address/{address}").json()
     return dict(req)['balance']
 
+
 # --------------------------------------------------------------------------------
 # Check Value Bitcoin Gold Address Balance Return [str]
 def Btg_Balance(address):
     """ Check Value Bitcoin Gold Address Balance Return [str] """
     req = requests.get(f"https://bgold.atomicwallet.io/api/v1/address/{address}").json()
     return dict(req)['balance']
+
 
 # --------------------------------------------------------------------------------
 # Check Value DigiByte Address Balance Return [str]
@@ -313,12 +518,14 @@ def Dgb_Balance(address):
     req = requests.get(f"https://digibyte.atomicwallet.io/api/v1/address/{address}").json()
     return dict(req)['balance']
 
+
 # --------------------------------------------------------------------------------
 # Check Value Ravencoin Address Balance Return [str]
 def Rvn_Balance(address):
     """ Check Value Ravencoin Address Balance Return [str] """
     req = requests.get(f"https://ravencoin.atomicwallet.io/api/v1/address/{address}").json()
     return dict(req)['balance']
+
 
 # --------------------------------------------------------------------------------
 # Check Value Qtum Address Balance Return [str]
@@ -327,12 +534,14 @@ def Qtum_Balance(address):
     req = requests.get(f"https://qtum.atomicwallet.io/api/v1/address/{address}").json()
     return dict(req)['balance']
 
+
 # --------------------------------------------------------------------------------
 # Check Value ZCASH Address Balance Return [str]
 def Zec_Balance(address):
     """ Check Value ZCASH Address Balance Return [str] """
     req = requests.get(f"https://zcash.atomicwallet.io/api/v1/address/{address}").json()
     return dict(req)['balance']
+
 
 # --------------------------------------------------------------------------------
 # Check Value Dash Address Balance : return [str]
