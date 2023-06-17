@@ -1,15 +1,19 @@
 from .Utils import (
+
+    PrivateKey_To_UnCompress_Address,
+    PrivateKey_To_Compress_Address,
     PrivateKey_To_UnCompress_Addr,
     PrivateKey_To_Compress_Addr,
     PrivateKey_To_PublicHash,
-    PrivateKey_To_PublicKey,
     PrivateKey_To_Mnemonics,
+    PrivateKey_To_PublicKey,
+    PrivateKey_To_Address,
     PrivateKey_To_RootKey,
     PrivateKey_To_Binary,
     PrivateKey_To_Bytes,
     PrivateKey_To_Addr,
     PrivateKey_To_Dec,
-    PrivateKey_To_Wif,
+    PrivateKey_To_WIF,
     PrivateKey_From_Passphrase,
     PrivateKey_From_RootKey,
     PrivateKey_From_Binary,
@@ -41,3 +45,5 @@ from .Tron import PrivateKey_To_TRX, Mnemonic_To_TRX, Balance_TRX
 from .zCash import PrivateKey_To_ZEC, Mnemonic_To_ZEC, Balance_ZEC
 from .Qtum import PrivateKey_To_QTUM, Mnemonic_To_QTUM, Balance_QTUM
 from .Ravencoin import PrivateKey_To_RVN, Mnemonic_To_RVN, Balance_RVN
+
+
