@@ -1,5 +1,7 @@
 ## convert binary to private key hex
 
+## Binary To HEX
+
 ### Private Key From Binary
 
 generated random binary string for convert to hex private key
