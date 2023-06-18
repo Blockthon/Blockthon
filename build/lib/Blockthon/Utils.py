@@ -240,7 +240,7 @@ def Mnemonic_To_Bytes(mnemonicWords):
 
 # ╔╦╗╔╗╔╔═╗╔╦╗╔═╗╔╗╔╦╔═╗  ╔╦╗╔═╗  ═╗ ╦╔═╗╦═╗╦  ╦
 # ║║║║║║║╣ ║║║║ ║║║║║║     ║ ║ ║  ╔╩╦╝╠═╝╠╦╝╚╗╔╝
-# ╩ ╩╝╚╝╚═╝╩ ╩╚═╝╝╚╝╩╚═╝   ╩ ╚═╝  ╩ ╚═╩  ╩╚═ ╚╝ 
+# ╩ ╩╝╚╝╚═╝╩ ╩╚═╝╝╚╝╩╚═╝   ╩ ╚═╝  ╩ ╚═╩  ╩╚═ ╚╝
 def Mnemonic_To_RootKey(mnemonic_words):
     mnemonic_ = ''.join(c for c in mnemonic_words if c.isalnum())
     mnemonic_ = mnemonic_.split(' ')
@@ -549,4 +549,3 @@ def Dash_Balance(address):
     """ # Check Value Dash Address Balance : return [str] """
     req = requests.get(f"https://dash.atomicwallet.io/api/v1/address/{address}").json()
     return dict(req)['balance']
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
