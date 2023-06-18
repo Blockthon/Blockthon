@@ -27,3 +27,9 @@ privatekey = os.urandom(32).hex()
 # in Type Parameter can use : P2PKH / P2SH / P2WPKH / P2WSH / P2WPKHinP2SH / P2WSHinP2SH / compress / uncompress
 uncompressAddr = PrivateKey_To_Address(privatekey, Type='uncompress')
 ```
+```python
+from Blockthon.Wallet import PrivateKey_To_Address, PrivateKey
+
+# convert hex to uncompress address
+uncompress_Address = PrivateKey_To_Address(PrivateKey(), compress=False)
+```
