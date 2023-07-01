@@ -1,4 +1,5 @@
 # These are supported funding model platforms
 
-github: Pymmdrza
+github: [Pymmdrza, CryptoAttacker]
 patreon: pymmdrza
+custom: [https://mmdrza.com, https://mdrza.medium.com]
