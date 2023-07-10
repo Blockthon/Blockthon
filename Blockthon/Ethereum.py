@@ -1,15 +1,13 @@
-from .Utils import Wallet_, ETH, Eth_Balance, Mnemonic_To_Bytes, Bytes_To_PrivateKey
+from .Utils import HexToETH
+from .lib import Hexlify, MnemonicToBytes, DecToBytes
 
-def PrivateKey_To_ETH(privatekey):
-    hd: Wallet_ = Wallet_(ETH)
-    hd.from_private_key(privatekey)
-    return hd.p2pkh_address()
+def Address_From_PrivateKey(privatekey: str) -> str: return HexToETH(privatekey)
 
-def Mnemonic_To_ETH(mnemonicwords):
-    seed = Mnemonic_To_Bytes(mnemonicwords)
-    key = Bytes_To_PrivateKey(seed)
-    eth: Wallet_ = Wallet_(ETH)
-    eth.from_private_key(key)
-    return eth.p2pkh_address()
+def Address_From_Bytes(byte: bytes) -> str: return Address_From_PrivateKey(Hexlify(byte))
 
-def Balance_ETH(addr): return Eth_Balance(addr)
+
+def Address_From_Mnemonic(mnemonics: str) -> str: return Address_From_Bytes(MnemonicToBytes(mnemonics))
+
+
+def Address_From_Dec(dec: int) -> str: return Address_From_Bytes(DecToBytes(dec))
+

@@ -1,30 +1,14 @@
-from .Utils import Wallet_, RVN, Rvn_Balance, Mnemonic_To_Bytes, Bytes_To_PrivateKey
+from .Utils import HexToRVN
+from .lib import Hexlify, MnemonicToBytes, DecToBytes
 
 
-def PrivateKey_To_RVN(privatekey: str):
-    """
-    convert hex private key (string) to 1 type address for rvn
-    :param privatekey: Private Key Hex.
-    :type privatekey: string.
-
-    :returns: string address.
-
-    >>> from Blockthon.Ravencoin import PrivateKey_To_RVN
-    >>> import os
-    >>> key = os.urandom(32).hex()
-    >>> p2pkh = PrivateKey_To_RVN(key)
-    """
-    rvn: Wallet_ = Wallet_(RVN)
-    rvn.from_private_key(privatekey)
-    return rvn.p2pkh_address()
+def Address_From_PrivateKey(privatekey: str) -> str: return HexToRVN(privatekey)
 
 
-def Mnemonic_To_RVN(mnemonicwords):
-    seed = Mnemonic_To_Bytes(mnemonicwords)
-    key = Bytes_To_PrivateKey(seed)
-    rvn: Wallet_ = Wallet_(RVN)
-    rvn.from_private_key(key)
-    return rvn.p2pkh_address()
+def Address_From_Bytes(byte: bytes) -> str: return Address_From_PrivateKey(Hexlify(byte))
 
 
-def Balance_RVN(addr): return Rvn_Balance(addr)
+def Address_From_Mnemonic(mnemonics: str) -> str: return Address_From_Bytes(MnemonicToBytes(mnemonics))
+
+
+def Address_From_Dec(dec: int) -> str: return Address_From_Bytes(DecToBytes(dec))

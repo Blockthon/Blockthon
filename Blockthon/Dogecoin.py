@@ -1,15 +1,14 @@
-from .Utils import Wallet_, DOGE, Doge_Balance, Mnemonic_To_Bytes, Bytes_To_PrivateKey
+from .Utils import HexToDOGE
+from .lib import Hexlify, MnemonicToBytes, DecToBytes
 
-def PrivateKey_To_DOGE(privatekey):
-    Dg: Wallet_ = Wallet_(DOGE)
-    Dg.from_private_key(privatekey)
-    return Dg.p2pkh_address()
 
-def Mnemonic_To_DOGE(mnemonicwords):
-    seed = Mnemonic_To_Bytes(mnemonicwords)
-    key = Bytes_To_PrivateKey(seed)
-    Dg: Wallet_ = Wallet_(DOGE)
-    Dg.from_private_key(key)
-    return Dg.p2pkh_address()
+def Address_From_PrivateKey(privatekey: str) -> str: return HexToDOGE(privatekey)
 
-def Balance_DOGE(addr): return Doge_Balance(addr)
+
+def Address_From_Bytes(byte: bytes) -> str: return Address_From_PrivateKey(Hexlify(byte))
+
+
+def Address_From_Mnemonic(mnemonics: str) -> str: return Address_From_Bytes(MnemonicToBytes(mnemonics))
+
+
+def Address_From_Dec(dec: int) -> str: return Address_From_Bytes(DecToBytes(dec))

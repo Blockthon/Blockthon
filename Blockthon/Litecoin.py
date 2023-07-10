@@ -1,44 +1,36 @@
-from .Utils import Wallet_, LTC, Ltc_Balance, Mnemonic_To_Bytes, Bytes_To_PrivateKey
+from .Utils import HexToLTC
+from .lib import Hexlify, MnemonicToBytes, DecToBytes
 
 
-def PrivateKey_To_LTC(privatekey: str, format='P2PKH'):
+def Address_From_PrivateKey(privatekey: str, Type: str) -> str:
     """
-    convert hex private key (string) to 4 type address for litecoin
-    :param privatekey: Private Key Hex.
-    :type privatekey: string.
-    :param format: Address Type Format - 'P2PKH'  / 'P2WPKH' / 'P2SH' / 'P2WSH' .
-    :type format: string
+    Convert Private Key (Hex) To All Type's Litecoin Address.
 
-    :returns: string address.
+    >>> # Example Address With Type's: 'P2PKH'/'P2SH'/'P2WPKH'/'P2WSH'
+    >>> P2PKH_Litecoin = Address_From_PrivateKey(privatekey, Type='P2PKH')
+    >>> P2SH_Litecoin = Address_From_PrivateKey(privatekey, Type='P2SH')
+    >>> P2WPKH_Litecoin = Address_From_PrivateKey(privatekey, Type='P2WPKH')
+    >>> P2WSH_Litecoin = Address_From_PrivateKey(privatekey, Type='P2WSH')
 
-    >>> from Blockthon.Litecoin import PrivateKey_To_LTC
-    >>> import os
-    >>> key = os.urandom(32).hex()
-    >>> p2pkh = PrivateKey_To_LTC(key, 'P2PKH')
-    >>> p2sh = PrivateKey_To_LTC(key, 'P2SH')
-    >>> p2wpkh = PrivateKey_To_LTC(key, 'P2WPKH')
-    >>> p2wsh = PrivateKey_To_LTC(key, 'P2WSH')
+    :return: LitecoinAddress_string.
     """
-    ltc: Wallet_ = Wallet_(LTC)
-    ltc.from_private_key(privatekey)
-    if format == 'P2PKH':
-        return ltc.p2pkh_address()
-    elif format == 'P2SH':
-        return ltc.p2sh_address()
-    elif format == 'P2WSH':
-        return ltc.p2wsh_address()
-    elif format == 'P2WPKH':
-        return ltc.p2wpkh_address()
+    if Type == 'P2PKH':
+        return HexToLTC(privatekey, 'P2PKH')
+    elif Type == 'P2SH':
+        return HexToLTC(privatekey, 'P2SH')
+    elif Type == 'P2WSH':
+        return HexToLTC(privatekey, 'P2WSH')
+    elif Type == 'P2WPKH':
+        return HexToLTC(privatekey, 'P2WPKH')
     else:
-        return ltc.p2pkh_address()
+        return HexToLTC(privatekey, 'P2PKH')
 
 
-def Mnemonic_To_LTC(mnemonicwords):
-    seed = Mnemonic_To_Bytes(mnemonicwords)
-    key = Bytes_To_PrivateKey(seed)
-    ltc: Wallet_ = Wallet_(LTC)
-    ltc.from_private_key(key)
-    return ltc.p2pkh_address()
+def Address_From_Bytes(byte: bytes) -> str: return Address_From_PrivateKey(Hexlify(byte))
 
 
-def Balance_LTC(addr): return Ltc_Balance(addr)
+def Address_From_Mnemonic(mnemonics: str) -> str: return Address_From_Bytes(MnemonicToBytes(mnemonics))
+
+
+def Address_From_Dec(dec: int) -> str: return Address_From_Bytes(DecToBytes(dec))
+

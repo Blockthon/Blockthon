@@ -1,15 +1,12 @@
-from .Utils import Wallet_, TRX, Trx_Balance, Mnemonic_To_Bytes, Bytes_To_PrivateKey
+from .Utils import HexToTRX
+from .lib import Hexlify, MnemonicToBytes, DecToBytes
 
-def PrivateKey_To_TRX(privatekey):
-    trx: Wallet_ = Wallet_(TRX)
-    trx.from_private_key(privatekey)
-    return trx.p2pkh_address()
+def Address_From_PrivateKey(privatekey: str) -> str: return HexToTRX(privatekey)
 
-def Mnemonic_To_TRX(mnemonicwords):
-    seed = Mnemonic_To_Bytes(mnemonicwords)
-    key = Bytes_To_PrivateKey(seed)
-    trx: Wallet_ = Wallet_(TRX)
-    trx.from_private_key(key)
-    return trx.p2pkh_address()
+def Address_From_Bytes(byte: bytes) -> str: return Address_From_PrivateKey(Hexlify(byte))
 
-def Balance_TRX(addr): return Trx_Balance(addr)
+
+def Address_From_Mnemonic(mnemonics: str) -> str: return Address_From_Bytes(MnemonicToBytes(mnemonics))
+
+
+def Address_From_Dec(dec: int) -> str: return Address_From_Bytes(DecToBytes(dec))

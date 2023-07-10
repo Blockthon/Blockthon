@@ -1,6 +1,6 @@
 # programmer Mmdrza.Com
 
-__version__: str = "v2.6.3"
+__version__: str = "v4.6.3"
 __license__: str = "MIT"
 __author__: str = "Mohammadreza Fekri"
 __email__: str = "PyMmdrza@gmail.com"
@@ -14,17 +14,18 @@ __all__: list = [
     "__email__",
     "__description__",
     "Wallet",
+    "Check",
+    "lib",
+    "Utils",
     "Ethereum",
     "Bitcoin",
     "BitcoinGold",
-    "Dogecoin",
-    "DigiByte",
-    "Dash",
-    "Litecoin",
+    "Tron",
     "Qtum",
     "Ravencoin",
-    "Tron",
-    "zCash",
-    "Base58",
-    "Utils"
+    "Dash",
+    "Dogecoin",
+    "Digibyte",
+    "Litecoin",
+    "zCash"
 ]
