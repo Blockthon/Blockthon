@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Pymmdrza" /><link rel="canonical" href="https://blockthon.gitbook.io/blockthon/Bitcoin_Wallet/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Bitcoin Wallet With Blockthon - Blockthon Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Bitcoin Wallet With Blockthon";
+        var mkdocs_page_input_path = "Bitcoin_Wallet.md";
+        var mkdocs_page_url = "/blockthon/Bitcoin_Wallet/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Blockthon Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Bitcoin Wallet With Blockthon</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Blockthon/Blockthon/edit/master/docs/Bitcoin_Wallet.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="bitcoin-wallet-with-blockthon">Bitcoin Wallet With Blockthon</h1>
+<h2 id="generated-and-convert-private-key-to-mnemonic-seed-bytes-root-key-passphrase-binary-for-compress-uncompress-p2pkh-p2sh-p2wsh-p2wpkh-p2wpkhinp2sh-p2wshinp2sh-address-bitcoin-wallet">Generated and convert Private key To Mnemonic , seed (bytes) , Root Key , Passphrase , binary for Compress , Uncompress , P2PKH , P2SH , P2WSH, P2WPKH , P2WPKHinP2SH, P2WSHinP2SH Address Bitcoin Wallet</h2>
+<h3 id="generated-and-convert-private-key-hex-to-compress-and-uncompress-bitcoin-wallet">Generated and Convert Private Key Hex To Compress and uncompress Bitcoin wallet</h3>
+<pre><code class="language-python">from Blockthon.Wallet import PrivateKey_To_CompressAddr,PrivateKey_To_UnCompressAddr, PrivateKey
+
+# generated private key
+privatekey = PrivateKey()
+# convert private key (hex) to compressed Bitcoin Address
+compressAddress = PrivateKey_To_CompressAddr(privatekey)
+# uncompress
+uncompressAddress = PrivateKey_To_UnCompressAddr(privatekey)
+</code></pre>
+<h2 id="generated-and-convert-private-key-hex-to-compressed-and-uncompressed-bitcoin-address-wallet">Generated and Convert Private Key HEX To Compressed and UnCompressed Bitcoin Address Wallet</h2>
+<p>can use <code>Blockthon.Bitcoin</code> import <code>PrivateKey_To_Address</code> with param <code>privatekey</code> &amp; Just <code>Type='compress'</code>:</p>
+<pre><code class="language-python">from Blockthon.Wallet import PrivateKey_To_Addr, PrivateKey
+
+privatekey = PrivateKey()
+# compress bitcoin address
+compressAddress = PrivateKey_To_Addr(privatekey, compress=True)
+# uncompress bitcoin address
+uncompressAddress = PrivateKey_To_Addr(privatekey, compress=False)
+</code></pre>
+<h2 id="generated-convert-private-key-to-all-bitcoin-address-wallet-type">Generated Convert Private Key To All Bitcoin Address Wallet Type</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Blockthon.Wallet</th>
+<th align="center">privatekey</th>
+<th align="left">Type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>compress</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='compress')</code></td>
+</tr>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>uncompress</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='uncompress')</code></td>
+</tr>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>P2PKH</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='P2PKH')</code></td>
+</tr>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>P2SH</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='P2SH')</code></td>
+</tr>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>P2WPKH</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='P2WPKH')</code></td>
+</tr>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>P2WSH</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='P2WSH')</code></td>
+</tr>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>P2WPKHinP2SH</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='P2WPKHinP2SH')</code></td>
+</tr>
+<tr>
+<td align="center">PrivateKey_To_Addr</td>
+<td align="center">hex (string)</td>
+<td align="left"><code>P2WSHinP2SH</code></td>
+<td><code>PrivateKey_To_Addr(key, Type='P2WSHinP2SH')</code></td>
+</tr>
+</tbody>
+</table>
+<p>example :</p>
+<pre><code class="language-python">from Blockthon.Bitcoin import PrivateKey_To_Addr
+import os
+
+key = os.urandom(32).hex()
+# Convert Private Key HEX To Compress Address
+compress_Address = PrivateKey_To_Addr(key, 'compress')
+# Convert Private Key HEX To Un Compress Address
+uncompress_Address = PrivateKey_To_Addr(key, 'uncompress')
+# Convert Private Key HEX To P2PKH Address Type
+p2pkh_Address = PrivateKey_To_Addr(key, 'P2PKH')
+# Convert Private Key HEX To P2SH Address Type
+p2sh_Address = PrivateKey_To_Addr(key, 'P2SH')
+# Convert Private Key HEX To P2WPKH Address Type
+p2wpkh_Address = PrivateKey_To_Addr(key, 'P2WPKH')
+# Convert Private Key HEX To P2WSH Address Type
+p2wsh_Address = PrivateKey_To_Addr(key, 'P2WSH')
+# Convert Private Key HEX To P2WPKH in P2SH Address Type
+p2wpkhinp2sh_Address = PrivateKey_To_Addr(key, 'P2WPKHinP2SH')
+# Convert Private Key HEX To P2WSH in P2SH Address Type
+p2wshinp2sh_Address = PrivateKey_To_Addr(key, 'P2WSHinP2SH')
+</code></pre>
+<h2 id="generated-and-convert-mnemonic-to-bitcoin-address-wallet">Generated and Convert Mnemonic To Bitcoin Address Wallet</h2>
+<pre><code class="language-python">from Blockthon.Wallet import getMnemonic
+from Blockthon.Bitcoin import Mnemonic_To_PrivateKey
+
+mnemonicword = getMnemonic(12)
+# convert mnemonic to private key hex
+privatekey = Mnemonic_To_PrivateKey(mnemonicword)
+</code></pre>
+<h2 id="convert-wif-to-bitcoin-address">Convert Wif To Bitcoin Address</h2>
+<pre><code class="language-python">from Blockthon.Bitcoin import Wif_To_Addr
+
+wif = &quot;YOUR_WIF_KEY&quot;
+# convert wif to address bitcoin
+address = Wif_To_Addr(wif)
+</code></pre>
+<h2 id="convert-wif-to-decimal-int">Convert Wif To Decimal (int)</h2>
+<pre><code class="language-python">from Blockthon.Bitcoin import Wif_To_Dec
+
+wif = &quot;YOUR_WIF_KEY&quot;
+# convert wif to number (dec)
+dec = Wif_To_Dec(wif)
+</code></pre>
+<h2 id="convert-wif-to-private-key-hex">Convert Wif To Private Key (hex)</h2>
+<pre><code class="language-python">from Blockthon.Bitcoin import Wif_To_HEX
+
+wif = &quot;YOUR_WIF_KEY&quot;
+# convert wif to private key hex
+privatekey = Wif_To_HEX(wif)
+
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2023, Pymmdrza</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Blockthon/Blockthon" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

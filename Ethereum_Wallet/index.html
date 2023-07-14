@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Pymmdrza" /><link rel="canonical" href="https://blockthon.gitbook.io/blockthon/Ethereum_Wallet/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Ethereum With Blockthon - Blockthon Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ethereum With Blockthon";
+        var mkdocs_page_input_path = "Ethereum_Wallet.md";
+        var mkdocs_page_url = "/blockthon/Ethereum_Wallet/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Blockthon Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Ethereum With Blockthon</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Blockthon/Blockthon/edit/master/docs/Ethereum_Wallet.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ethereum-with-blockthon">Ethereum With Blockthon</h1>
+<h2 id="generated-and-convert-private-key-hex-to-ethereum-address">Generated and Convert Private Key (HEX) To Ethereum Address</h2>
+<pre><code class="language-python">from Blockthon.Ethereum import PrivateKey_To_ETH
+import os
+
+# Generate Random Private Key
+key = os.urandom(32).hex()
+# Convert Private Key To Ethereum Address
+Ethereum_Address = PrivateKey_To_ETH(key)
+</code></pre>
+<h3 id="generated-ethereum-address-from-mnemonic">Generated Ethereum Address From Mnemonic</h3>
+<pre><code class="language-python">from Blockthon.Wallet import getMnemonic
+from Blockthon.Ethereum import Mnemonic_To_ETH
+
+# Generated Random Mnemonic with 12 word
+mnemonicWords = getMnemonic(12)
+# Convert To Ethereum Address
+Ethereum_Address = Mnemonic_To_ETH(mnemonicWords)
+</code></pre>
+<h3 id="check-value-balance-on-ethereum-address">Check Value Balance on Ethereum Address :</h3>
+<pre><code class="language-python">from Blockthon.Ethereum import Balance_ETH
+
+Ethereum_Address = 'ADDRESS_Ethereum_WALLET'
+# checking return value on string
+Balance = Balance_ETH(Ethereum_Address)
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2023, Pymmdrza</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Blockthon/Blockthon" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

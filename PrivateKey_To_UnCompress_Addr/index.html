@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Pymmdrza" /><link rel="canonical" href="https://blockthon.gitbook.io/blockthon/PrivateKey_To_UnCompress_Addr/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>PrivateKey To UnCompress Addr - Blockthon Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "PrivateKey To UnCompress Addr";
+        var mkdocs_page_input_path = "PrivateKey_To_UnCompress_Addr.md";
+        var mkdocs_page_url = "/blockthon/PrivateKey_To_UnCompress_Addr/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../images/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Blockthon Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>PrivateKey To UnCompress Addr</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Blockthon/Blockthon/edit/master/docs/PrivateKey_To_UnCompress_Addr.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="convert-private-key-hex-to-uncompress-address">Convert Private Key Hex to uncompress Address</h2>
+<p>generated random Private Key and convert to uncompress bitcoin address on <code>blockthon</code> with 3 different method </p>
+<pre><code class="language-python">from Blockthon.Wallet import PrivateKey_To_UnCompressAddr, PrivateKey
+
+# generated private key
+privatekey = PrivateKey()
+# convert private key (hex) to uncompressed Bitcoin Address
+uncompressAddress = PrivateKey_To_UnCompressAddr(privatekey)
+</code></pre>
+<p>or can use <code>PrivateKey_To_Addr</code> on <code>Blockthon.Wallet</code> , param:[privatekey(str), compress=True/False]
+ return <code>uncompressAddress</code> on <code>string</code> type: </p>
+<pre><code class="language-python">from Blockthon.Wallet import PrivateKey_To_Addr, PrivateKey
+
+privatekey = PrivateKey()
+uncompressAddress = PrivateKey_To_Addr(privatekey, compress=False)
+</code></pre>
+<p>or can use <code>Blockthon.Bitcoin</code> import <code>PrivateKey_To_Address</code> with param <code>privatekey</code> &amp; Just <code>Type='uncompress'</code>:</p>
+<pre><code class="language-python">from Blockthon.Bitcoin import PrivateKey_To_Address
+import os
+
+privatekey = os.urandom(32).hex()
+# in Type Parameter can use : P2PKH / P2SH / P2WPKH / P2WSH / P2WPKHinP2SH / P2WSHinP2SH / compress / uncompress
+uncompressAddr = PrivateKey_To_Address(privatekey, Type='uncompress')
+</code></pre>
+<pre><code class="language-python">from Blockthon.Wallet import PrivateKey_To_Address, PrivateKey
+
+# convert hex to uncompress address
+uncompress_Address = PrivateKey_To_Address(PrivateKey(), compress=False)
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright © 2023, Pymmdrza</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Blockthon/Blockthon" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

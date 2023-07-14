@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Pymmdrza" /><link rel="canonical" href="https://blockthon.gitbook.io/blockthon/telegram/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Pymmdrza" /><link rel="canonical" href="https://blockthon.gitbook.io/blockthon/Litecoin_Wallet/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Telegram - Blockthon Documentation</title>
+    <title>Litecoin With Blockthon - Blockthon Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Telegram";
-        var mkdocs_page_input_path = "telegram.md";
-        var mkdocs_page_url = "/blockthon/telegram/";
+        var mkdocs_page_name = "Litecoin With Blockthon";
+        var mkdocs_page_input_path = "Litecoin_Wallet.md";
+        var mkdocs_page_url = "/blockthon/Litecoin_Wallet/";
       </script>
     
     <script src="../js/jquery-3.6.0.min.js" defer></script>
@@ -45,16 +45,6 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Telegram</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#telegram-channel-cryptoixer">Telegram channel : @Cryptoixer</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#telegram-id-mrpymmdrza">Telegram ID : @MrPyMmdrza</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
       </div>
     </div>
     </nav>
@@ -69,9 +59,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>Telegram</li>
+      <li>Litecoin With Blockthon</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/Blockthon/Blockthon/edit/master/docs/telegram.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/Blockthon/Blockthon/edit/master/docs/Litecoin_Wallet.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -79,15 +69,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="telegram-channel-programmer-and-owner">Telegram Channel Programmer and Owner</h2>
-<h3 id="telegram-channel-cryptoixer">Telegram channel : <a href="https://cryptoixer.t.me">@Cryptoixer</a></h3>
-<h3 id="telegram-id-mrpymmdrza">Telegram ID : <a href="https://mrpymmdrza.t.me">@MrPyMmdrza</a></h3>
+                <h1 id="litecoin-with-blockthon">Litecoin With Blockthon</h1>
+<h2 id="generated-and-convert-private-key-hex-to-litecoin-address">Generated and Convert Private Key (HEX) To Litecoin Address</h2>
+<pre><code class="language-python">from Blockthon.Litecoin import PrivateKey_To_LTC
+import os
+
+# Generate Random Private Key
+key = os.urandom(32).hex()
+# Convert Private Key To Litecoin Address
+Litecoin_Address = PrivateKey_To_LTC(key)
+</code></pre>
+<h3 id="generated-litecoin-address-from-mnemonic">Generated Litecoin Address From Mnemonic</h3>
+<pre><code class="language-python">from Blockthon.Wallet import getMnemonic
+from Blockthon.Litecoin import Mnemonic_To_LTC
+
+# Generated Random Mnemonic with 12 word
+mnemonicWords = getMnemonic(12)
+# Convert To Litecoin Address
+Litecoin_Address = Mnemonic_To_LTC(mnemonicWords)
+</code></pre>
+<h3 id="check-value-balance-on-litecoin-address">Check Value Balance on Litecoin Address :</h3>
+<pre><code class="language-python">from Blockthon.Litecoin import Balance_LTC
+
+Litecoin_Address = 'ADDRESS_Litecoin_WALLET'
+# checking return value on string
+Balance = Balance_LTC(Litecoin_Address)
+</code></pre>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-    </div>
 
   <hr/>
 
@@ -113,8 +123,6 @@
           <a href="https://github.com/Blockthon/Blockthon" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
         </span>
     
-    
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>
