@@ -20,6 +20,12 @@ pip install Blockthon
 pip3 install Blockthon
 ```
 
+if problem on installing on linux / debian :
+```bash
+sudo apt-get update&&sudo apt-get upgrade -y
+sudo apt-get install -y autoconf automake build-essential libffi-dev libtool pkg-config python3-dev
+```
+
 or for download manual:
 ```bash
 git clone https://github.com/Blockthon/Blockthon
